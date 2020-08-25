@@ -21,11 +21,6 @@ namespace TennisClub.Controllers
             return View();
         }
 
-        public IActionResult Turnirs()
-        {
-            return View();
-        }
-
         public IActionResult Contact()
         {
             return View();

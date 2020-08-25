@@ -6,59 +6,359 @@
     <title>@ViewData["Title"] - TennisClub</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/component.css" rel="stylesheet" />
+    <link href="~/css/fonts.css" rel="stylesheet" />
+    <link href="~/css/jquery.bxslider.css" rel="stylesheet" />
+    <link href="~/css/jquery.jscrollpane.css" rel="stylesheet" />
+    <link href="~/css/prettyPhoto.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/stapel.css" rel="stylesheet" />
+    <link href="~/css/style_dir.css" rel="stylesheet" />
+
+
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery.bxslider.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.mousewheel.js"></script>
+    <script src="~/js/jquery.stapel.js"></script>
+    <script src="~/js/jquery.transit.min.js"></script>
+    <script src="~/js/jquery.ui.totop.js"></script>
+    <script src="~/js/jquery-1.10.2.js"></script>
+    <script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/js/modernizr.custom.63321.js"></script>
+
+    <script src="~/js/gallery/isotope.js"></script>
+    <script src="~/js/gallery/jquery.prettyPhoto.js"></script>
+
+    <script src="~/js/menu/cbpHorizontalMenu.js"></script>
+    <script src="~/js/menu/modernizr.custom.js"></script>
+
+
+
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TennisClub</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StaticPages" asp-action="AboutUs">O nama</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StaticPages" asp-action="TennisSchool">Teniska skola</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StaticPages" asp-action="Gallery">Galerija slika</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StaticPages" asp-action="Turnirs">Turniri</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StaticPages" asp-action="Contact">Kontakt</a>
-                        </li>
-                        
-                    </ul>
+    <!--SECTION HEADER-->
+    <section class="container box-logo">
+        <header>
+            <div class="content-logo">
+
+                <div class="logo">
+                    <img src="~/img/logo2 .png" alt="" />
+                </div>
+                <div class="box-login">
+                    <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                    <a asp-area="" asp-controller="Account" asp-action="Register">Sign up</a>
+                </div>
+
+            </div>
+            <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
+        </header>
+    </section>
+    <!--SECTION CONTAINER-->
+    <section class="drawer">
+        <section id="summary">
+            <div class="general">
+                <!--SECTION MENU-->
+                <div class="box-menu">
+                    <nav id="cbp-hrmenu" class="container cbp-hrmenu">
+                        <ul class="col-md-12">
+                            <li>
+                                <a class="lnk-menu"  asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                            </li>
+                            <li>
+                                <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="AboutUs">O NAMA</a>
+                            </li>
+                            <li>
+                            <a class="lnk-menu" href="results.html">TENISKA ŠKOLA</a>
+                            </li>
+                            <li>
+                                <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Gallery">GALERIJA SLIKA</a>
+                            </li>
+                            <li>
+                            <a class="lnk-menu" asp-area="" asp-controller="Turnirs" asp-action="Turnirs">TURNIRI</a>
+                            </li>
+                            <li>
+                                <a  class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Contact">KONTAKT</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+
+                <!--SECTION SPONSOR-->
+                <div class="container">
+                    <div class="client-sport client-sport-nomargin home-pg">
+                        <div class="content-banner">
+                            <ul class="sponsor second">
+                                <li><img src="images/sponsor/2/02.png" alt="" /></li>
+                                <li><img src="images/sponsor/2/03.png" alt="" /></li>
+                                <li><img src="images/sponsor/2/04.png" alt="" /></li>
+                                <li><img src="images/sponsor/2/06.png" alt="" /></li>
+                                <li><img src="images/sponsor/2/08.png" alt="" /></li>
+                                <li><img src="images/sponsor/2/13.png" alt="" /></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        </section>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - TennisClub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+        <!--<!--SECTION FOOTER-->
+        <!--<section id="footer-tag">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <h3>About Us</h3>
+                        <p>
+                            Hvala vam što ste posetili www.tkgazela.co.rs. Naša misija je da pružimo
+                            nepristrasne informacije i resurse kako bismo pomogli bilo kojem ljubitelju sporta
+                            da lako dobije sve potrebne informacije i rezerviše svoj termin.
+                        </p>
+                        <p>
+                            Dodaj neki tekst bla bla
+                        </p>
+                    </div>-->
+                    @*<div class="col-md-4 cat-footer">
+                        <div class="footer-map"></div>
+                        <h3 class='last-cat'>Last Categories</h3>
+                        <ul class="last-tips">
+                            <li><a href="tournaments.html">Tournaments</a></li>
+                            <li><a href="results.html">All Results</a></li>
+                            <li><a href="matches.html">Matches London ATP</a></li>
+                            <li><a href="matches.html">Double ATP</a></li>
+                            <li><a href="matches.html">Double WTP</a></li>
+                            <li><a href="shops.html">Shop Best Price</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 footer-newsletters">
+                        <h3>Newsletters</h3>
+                        <form method="post">
+                            <div class="name">
+                                <label for="name">* Name:</label><div class="clear"></div>
+                                <input id="name" name="name" type="text" placeholder="e.g. Mr. John Doe" required="" />
+                            </div>
+                            <div class="email">
+                                <label for="email">* Email:</label><div class="clear"></div>
+                                <input id="email" name="email" type="text" placeholder="example@domain.com" required="" />
+                            </div>
+                            <div id="loader">
+                                <input type="submit" value="Submit" />
+                            </div>
+                        </form>
+                    </div>*@
+                    <div class="col-xs-12">
+                        <ul class="social">
+                            <li><a href="https://www.facebook.com/tkgazela/" rel="stylesheet"><i class="fab fa-facebook-square"></i></a></li>
+                            <li><a href="http://maliigraci.rs/klubovi/tk-gazela/"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/maliigraci/"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-digg"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="col-md-12 content-footer">
+                <p>© www.tkgazela.co.rs All rights reserved. </p>
+            </div>
+        </footer>
+    </section>--><!--Close Top Container-->
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.transit.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#textslide p.creative').transition({ scale: 1, opacity: 1, delay: 1000, duration: 2000 });
+        $('#textslide p.linetheme-left').transition({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
+        $('#textslide p.linetheme-right').transition({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
+        $('#textslide .titl-theme').transition({ opacity: 1, delay: 2500, duration: 2000 });
+        $('.slide-txt img').transition({ opacity: 1, delay: 1000, duration: 2000 });
+
+    </script>
+    <!--MENU-->
+    <script src="js/menu/modernizr.custom.js" type="text/javascript"></script>
+    <script src="js/menu/cbpHorizontalMenu.js" type="text/javascript"></script>
+    <!--END MENU-->
+    <!--PERCENTAGE-->
+    <script>
+        $(function () {
+            "use strict";
+            $('.skillbar').each(function () {
+                $(this).find('.skillbar-bar').width(0);
+            });
+
+            $('.skillbar').each(function () {
+                $(this).find('.skillbar-bar').animate({
+                    width: $(this).attr('data-percent')
+                }, 2000);
+            });
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('.tabs .tab-links a').on('click', function (e) {
+                var currentAttrValue = jQuery(this).attr('href');
+
+                // Show/Hide Tabs
+                jQuery('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+
+                // Change/remove current tab to active
+                jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+                e.preventDefault();
+            });
+        });
+    </script>
+
+    <!-- Percentace circolar -->
+    <script src="js/circle/jquery-asPieProgress.js" type="text/javascript"></script>
+    <script src="js/circle/rainbow.min.js" type="text/javascript"></script>
+
+    <!--Gallery-->
+
+    <script src="js/gallery/jquery.prettyPhoto.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $(".portfolio a").hover(function () {
+                $(this).children("img").animate({ opacity: 0.75 }, "fast");
+            }, function () {
+                $(this).children("img").animate({ opacity: 1.0 }, "slow");
+            });
+
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+                animation_speed: 'fast', /* fast/slow/normal */
+                slideshow: 5000, /* false OR interval time in ms */
+                autoplay_slideshow: false, /* true/false */
+                opacity: 0.80, /* Value between 0 and 1 */
+                show_title: true, /* true/false */
+                allow_resize: true, /* Resize the photos bigger than viewport. true/false */
+                default_width: 500,
+                default_height: 344,
+                counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
+                theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+                horizontal_padding: 20, /* The padding on each side of the picture */
+                hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+                wmode: 'opaque' /* Set the flash wmode attribute */
+            });
+        });
+
+    </script>
+
+    <script src="js/gallery/isotope.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(window).load(function () {
+            var $container = $('.albumContainer');
+            $container.isotope({
+                filter: '*',
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+
+            $('.albumFilter li').click(function () {
+                $('.albumFilter .current').removeClass('current');
+                $(this).addClass('current');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
+                return false;
+            });
+        });
+
+    </script>
+    <!-- Button Anchor Top-->
+    <script src="js/jquery.ui.totop.js" type="text/javascript"></script>
+
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="js/jquery.bxslider.js" type="text/javascript"></script>
+    <script>
+        $('#product').bxSlider({
+            minSlides: 3,
+            maxSlides: 5,
+            slideWidth: 215,
+            slideMargin: 10
+        });
+
+
+        $('.vertical-news').bxSlider({
+            mode: 'vertical',
+            slideWidth: 1300,
+            minSlides: 3,
+            slideMargin: 10
+        });
+
+    </script>
+
+
+    <!--Carousel News Vertical-->
+
+    <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="js/jquery.mousewheel.js" type="text/javascript"></script>
+
+    <!--Portfolio Video-->
+    <script src="js/modernizr.custom.63321.js"></script>
+
+    <script type="text/javascript" src="js/jquery.stapel.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var $grid = $('#tp-grid'),
+                $name = $('#name'),
+                $close = $('#close'),
+                $loader = $('<div class="loader"><i></i><i></i><i></i><i></i><i></i><i></i><span>Loading...</span></div>').insertBefore($grid),
+                stapel = $grid.stapel({
+                    onLoad: function () {
+                        $loader.remove();
+                    },
+                    onBeforeOpen: function (pileName) {
+                        $name.html(pileName);
+                    },
+                    onAfterOpen: function (pileName) {
+                        $close.show();
+                    }
+                });
+
+            $close.on('click', function () {
+                $close.hide();
+                $name.empty();
+                stapel.closePile();
+            });
+
+        });
+    </script>
+
+<div class="container body-content">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+@*<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - TennisClub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSection("Scripts", required: false)
 </body>
 </html>

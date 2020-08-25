@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TENNIS CLUB</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <meta name="author" content="corsini" />
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href='../../../../../../fonts.googleapis.com/cssa83f.css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css' />
+    <link href='../../../../../../fonts.googleapis.com/css912f.css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css' />
+    <link href='../../../../../../fonts.googleapis.com/css27c4.css?family=Raleway:400,100,300,200,500,600,700,800,900' rel='stylesheet' type='text/css' />
+    <link href='../../../../../../fonts.googleapis.com/cssc601.css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="css/fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/component.css" rel="stylesheet" type="text/css" />
+    <link href="css/stapel.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_dir.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp" type="text/javascript"></script>
+</head>
+<body>
+    <!--<section class="container box-logo">
+        <header>
+            <div class="content-logo">
+
+                <div class="logo">
+                    <img src="~/img/logo2 .png" alt="" />
+                </div>
+                <div class="box-login">
+                    <a href='login.html'>Login</a>
+                    <a href='login.html'>Sign Up</a>
+                </div>
+
+            </div>
+            <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
+        </header>
+    </section>
+    <!--SECTION CONTAINER-->
+    <!--<section class="drawer">
+        <section id="summary">
+            <div class="general">-->
+    <!--SECTION MENU-->
+    <!--<div class="box-menu">
+        <nav id="cbp-hrmenu" class="container cbp-hrmenu">
+            <ul class="col-md-12">
+                <li>
+                    <a class="lnk-menu" href="index.html">HOME</a>
+
+                </li>
+                <li><a class="lnk-menu" href="#">O NAMA</a></li>
+                <li><a class="lnk-menu" href="results.html">TENISKA ŠKOLA</a></li>
+                <li>-->
+    @*<a class="lnk-menu" href="news.html">GALERIJA</a>*@
+    <!--<a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Gallery">Galerija slika</a>
+    </li>
+    <li><a class="lnk-menu" href="shops.html">TURNIRI</a></li>
+    <li>
+        <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Contact">Kontakt</a>
+    </li>-->
+    @*<li><a class="lnk-menu" href="contact.html">KONTAKT</a></li>*@
+    <!--</ul>
+        </nav>
+    </div>
+    <div class="content-result content-result-news col-md-12">
+        <div id="textslide" class="effect-backcolor">
+            <div class="container">
+                <div class="col-md-12 slide-txt">
+                    <p class='sub-result aft-little welcome linetheme-left'>TENISKI KLUB</p>
+                    <p class='sub-result aft-little linetheme-right'>GAZELA<span class="point-big">.</span></p>-->
+    @*<p class='sub-result aft-little  linetheme-left'>GAZELA</p>
+                            <p class='sub-result aft-little welcome linetheme-right'>TENISKI KLUB<span class="point-big">.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slidematch" class="col-xs-12 col-md-12">
+            <div class="content-match-team-wrapper">
+                <span class="gdlr-left">Bul. Arsenija Čarnojevića </span>
+                <span class="gdlr-upcoming-match-versus">59a</span>
+                <span class="gdlr-right">Blok 23</span>
+            </div>
+            <div class="content-match-team-time">
+                <span class="gdlr-left">011/301-5097 </span>
+                <p> </p>
+                <span class="gdlr-right">   tkgazela@eunet.rs</span>
+            </div>
+        </div>-->
+    *@
+
+    <section id="contact" class="secondary-page">
+        <div class="general">
+            <!--Google Maps-->
+            <div id="map_container">
+                <div id="map_canvas"></div>
+            </div>
+            <div class="container">
+                <div class="content-link col-md-12">
+                    <div id="contact_form" class="top-score-title col-md-9 align-center">
+                        <h3>Kontakt <span>forma</span><span class="point-little">.</span></h3>
+                        <form method="post">
+
+                            <div class="name">
+                                <label for="name">* Ime:</label><div class="clear"></div>
+                                <input id="name" name="name" type="text" placeholder="Petar Petrović" required="" />
+                            </div>
+                            <div class="email">
+                                <label for="email">* Email:</label><div class="clear"></div>
+                                <input id="email" name="email" type="text" placeholder="example@domain.com" required="" />
+                            </div>
+                            <div class="message">
+                                <label for="message"> Poruka:</label>
+                                <textarea name="messagetext" class="txt-area" id="message" cols="30" rows="4"></textarea>
+                            </div>
+
+                            <div id="loader">
+                                <input type="submit" value="Submit" />
+                            </div>
+                            <p class="success">Vaša poruka je uspešno poslata.</p>
+                            <p class="error">E-mail mora biti ispravan i poruka ora biti duža od 20 karaktera.</p>
+                        </form>
+                    </div>
+                    <div id="info-company" class="top-score-title col-md-3 align-center">
+                        <h3>Info</h3>
+                        <div class="col-md-12">
+                            <p>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3.925 1.745a.636.636 0 0 0-.951-.059l-.97.97c-.453.453-.62 1.095-.421 1.658A16.47 16.47 0 0 0 5.49 10.51a16.471 16.471 0 0 0 6.196 3.907c.563.198 1.205.032 1.658-.421l.97-.97a.636.636 0 0 0-.06-.951l-2.162-1.682a.636.636 0 0 0-.544-.115l-2.052.513a1.636 1.636 0 0 1-1.554-.43L5.64 8.058a1.636 1.636 0 0 1-.43-1.554l.513-2.052a.636.636 0 0 0-.115-.544L3.925 1.745zM2.267.98a1.636 1.636 0 0 1 2.448.153l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z" />
+
+                                </svg>
+                                +381 11 301 50 97
+                            </p>
+                            <p>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3.925 1.745a.636.636 0 0 0-.951-.059l-.97.97c-.453.453-.62 1.095-.421 1.658A16.47 16.47 0 0 0 5.49 10.51a16.471 16.471 0 0 0 6.196 3.907c.563.198 1.205.032 1.658-.421l.97-.97a.636.636 0 0 0-.06-.951l-2.162-1.682a.636.636 0 0 0-.544-.115l-2.052.513a1.636 1.636 0 0 1-1.554-.43L5.64 8.058a1.636 1.636 0 0 1-.43-1.554l.513-2.052a.636.636 0 0 0-.115-.544L3.925 1.745zM2.267.98a1.636 1.636 0 0 1 2.448.153l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z" />
+
+                                </svg>
+                                +381 11 301 50 98
+                            </p>
+
+                            <p>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                                </svg> tkgazela@eunet.rs
+                            </p>
+                            <p>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-globe" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M1.018 7.5h2.49c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5zM2.255 4H4.09a9.266 9.266 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.024 7.024 0 0 0 2.255 4zM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm-.5 1.077c-.67.204-1.335.82-1.887 1.855-.173.324-.33.682-.468 1.068H7.5V1.077zM7.5 5H4.847a12.5 12.5 0 0 0-.338 2.5H7.5V5zm1 2.5V5h2.653c.187.765.306 1.608.338 2.5H8.5zm-1 1H4.51a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm1 2.5V8.5h2.99a12.495 12.495 0 0 1-.337 2.5H8.5zm-1 1H5.145c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12zm-2.173 2.472a6.695 6.695 0 0 1-.597-.933A9.267 9.267 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM1.674 11H3.82a13.651 13.651 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm8.999 3.472A7.024 7.024 0 0 0 13.745 12h-1.834a9.278 9.278 0 0 1-.641 1.539 6.688 6.688 0 0 1-.597.933zM10.855 12H8.5v2.923c.67-.204 1.335-.82 1.887-1.855A7.98 7.98 0 0 0 10.855 12zm1.325-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm.312-3.5h2.49a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.91 4a9.277 9.277 0 0 0-.64-1.539 6.692 6.692 0 0 0-.597-.933A7.024 7.024 0 0 1 13.745 4h-1.834zm-1.055 0H8.5V1.077c.67.204 1.335.82 1.887 1.855.173.324.33.682.468 1.068z" />
+                                </svg>Bulevar Arsenija Čarnojevića 59a ,  bloku 23
+                            </p>
+                            <p>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>Beograd,Srbija
+                            </p>
+                            <p>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                </svg>predsednik kluba:
+                                Velibor Mikanović
+                            </p>
+                            <p>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>generalni sekretar:
+                                Maja Đeković
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<section id="sponsor" class="container">-->
+    <!--SECTION SPONSOR-->
+    <!--<div class="client-sport client-sport-nomargin">
+            <div class="content-banner">
+                <ul class="sponsor second">
+                    <li><img src="images/sponsor/2/02.png" alt="" /></li>
+                    <li><img src="images/sponsor/2/03.png" alt="" /></li>
+                    <li><img src="images/sponsor/2/04.png" alt="" /></li>
+                    <li><img src="images/sponsor/2/06.png" alt="" /></li>
+                    <li><img src="images/sponsor/2/08.png" alt="" /></li>
+                    <li><img src="images/sponsor/2/13.png" alt="" /></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer-tag">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <h3>About Us</h3>
+                    <p>
+                        Thank you for visiting tennisclub.com. Our mission is to
+                        provide unrivalled and unbiased informative and resources to help any sports fan who enjoys a flutter make informed and value led decisions.
+                    </p>
+                    <p>
+                        Our mission is to
+                        provide unrivalled and unbiased informative, resources to help any sports fan who enjoys a flutter make.
+                    </p>
+                </div>
+                <div class="col-md-4 cat-footer">
+                    <div class="footer-map"></div>
+                    <h3 class='last-cat'>Last Categories</h3>
+                    <ul class="last-tips">
+                        <li><a href="tournaments.html">Tournaments</a></li>
+                        <li><a href="results.html">All Results</a></li>
+                        <li><a href="matches.html">Matches London ATP</a></li>
+                        <li><a href="matches.html">Double ATP</a></li>
+                        <li><a href="matches.html">Double WTP</a></li>
+                        <li><a href="shops.html">Shop Best Price</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-newsletters">
+                    <h3>Newsletters</h3>
+                    <form method="post">
+                        <div class="name">
+                            <label for="name">* Name:</label><div class="clear"></div>
+                            <input id="Text1" name="name" type="text" placeholder="e.g. Mr. John Doe" required="" />
+                        </div>
+                        <div class="email">
+                            <label for="email">* Email:</label><div class="clear"></div>
+                            <input id="Text2" name="email" type="text" placeholder="example@domain.com" required="" />
+                        </div>
+                        <div id="Div1">
+                            <input type="submit" value="Submit" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xs-12">
+                    <ul id="" class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-digg"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="col-md-12 content-footer">
+            <p>© 2014 - 2015 tennisclub.com. All rights reserved. </p>
+        </div>
+    </footer>
+    </section>-->
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <!--MENU-->
+    <script src="js/menu/modernizr.custom.js" type="text/javascript"></script>
+    <script src="js/menu/cbpHorizontalMenu.js" type="text/javascript"></script>
+    <!--END MENU-->
+    <!-- Button Anchor Top-->
+    <script src="js/jquery.ui.totop.js" type="text/javascript"></script>
+
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /********************************************
+        GOOGLE MAPS
+        ********************************************/
+
+        // The following example creates a marker in Stockholm, Sweden
+        // using a DROP animation. Clicking on the marker will toggle
+        // the animation between a BOUNCE animation and no animation.
+        $(document).ready(function ($) {
+            "use strict";
+            var lokacija = new google.maps.LatLng(44.823158, 20.396684);
+            var parliament = new google.maps.LatLng(44.8262436, 20.395321);
+            var image = 'images/marker.png';
+            var marker;
+            var map;
+
+            function initialize() {
+                var styleArray = [
+                    {
+                        featureType: 'all',
+                        stylers: [
+                            { saturation: -1000 }
+                        ]
+                    }, {
+                        featureType: 'road.arterial',
+                        elementType: 'geometry',
+                        stylers: [
+                            { hue: '#00ffee' },
+                            { saturation: -100 },
+                            { "lightness": -8 },
+                            { "gamma": 1.18 }
+                        ]
+                    }
+                ];
+                var mapOptions = {
+                    zoom: 14,
+                    styles: styleArray,
+                    center: lokacija
+                };
+
+                map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+                marker = new google.maps.Marker({
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    icon: image,
+                    position: parliament
+                });
+                google.maps.event.addListener(marker, 'click', toggleBounce);
+            }
+
+            function toggleBounce() {
+
+                if (marker.getAnimation() != null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+        });
+    </script>
+    <script type="text/javascript">
+        /********************************************
+        CONTACT
+        ********************************************/
+        $(document).ready(function () {
+            $(function () {
+                "use strict";
+                $('#contact_form').submit(function (e) {
+                    e.preventDefault();
+                    var form = $(this);
+                    var name = $("#name").val();
+                    var email = $("#email").val();
+                    var text = $("#message").val();
+                    var dataString = 'name=' + name + '&email=' + email + '&message=' + text;
+                    function isValidEmail(emailAddress) {
+                        var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+                        return pattern.test(emailAddress);
+                    };
+                    if (isValidEmail(email) && (text.length > 20) && (name.length > 1)) {
+                        $.ajax({
+                            type: 'POST',
+                            url: "contact_form/contact_process.php",
+                            data: dataString,
+                            success: function () {
+                                $('.success').fadeIn(1000);
+                            }
+                        });
+                    } else {
+                        $('.error').fadeIn(1000);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
