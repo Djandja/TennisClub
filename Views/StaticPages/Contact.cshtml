@@ -24,73 +24,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp" type="text/javascript"></script>
 </head>
 <body>
-    <!--<section class="container box-logo">
-        <header>
-            <div class="content-logo">
-
-                <div class="logo">
-                    <img src="~/img/logo2 .png" alt="" />
-                </div>
-                <div class="box-login">
-                    <a href='login.html'>Login</a>
-                    <a href='login.html'>Sign Up</a>
-                </div>
-
-            </div>
-            <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
-        </header>
-    </section>
-    <!--SECTION CONTAINER-->
-    <!--<section class="drawer">
-        <section id="summary">
-            <div class="general">-->
-    <!--SECTION MENU-->
-    <!--<div class="box-menu">
-        <nav id="cbp-hrmenu" class="container cbp-hrmenu">
-            <ul class="col-md-12">
-                <li>
-                    <a class="lnk-menu" href="index.html">HOME</a>
-
-                </li>
-                <li><a class="lnk-menu" href="#">O NAMA</a></li>
-                <li><a class="lnk-menu" href="results.html">TENISKA ŠKOLA</a></li>
-                <li>-->
-    @*<a class="lnk-menu" href="news.html">GALERIJA</a>*@
-    <!--<a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Gallery">Galerija slika</a>
-    </li>
-    <li><a class="lnk-menu" href="shops.html">TURNIRI</a></li>
-    <li>
-        <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Contact">Kontakt</a>
-    </li>-->
-    @*<li><a class="lnk-menu" href="contact.html">KONTAKT</a></li>*@
-    <!--</ul>
-        </nav>
-    </div>
-    <div class="content-result content-result-news col-md-12">
-        <div id="textslide" class="effect-backcolor">
-            <div class="container">
-                <div class="col-md-12 slide-txt">
-                    <p class='sub-result aft-little welcome linetheme-left'>TENISKI KLUB</p>
-                    <p class='sub-result aft-little linetheme-right'>GAZELA<span class="point-big">.</span></p>-->
-    @*<p class='sub-result aft-little  linetheme-left'>GAZELA</p>
-                            <p class='sub-result aft-little welcome linetheme-right'>TENISKI KLUB<span class="point-big">.</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="slidematch" class="col-xs-12 col-md-12">
-            <div class="content-match-team-wrapper">
-                <span class="gdlr-left">Bul. Arsenija Čarnojevića </span>
-                <span class="gdlr-upcoming-match-versus">59a</span>
-                <span class="gdlr-right">Blok 23</span>
-            </div>
-            <div class="content-match-team-time">
-                <span class="gdlr-left">011/301-5097 </span>
-                <p> </p>
-                <span class="gdlr-right">   tkgazela@eunet.rs</span>
-            </div>
-        </div>-->
-    *@
 
     <section id="contact" class="secondary-page">
         <div class="general">
@@ -99,31 +32,8 @@
                 <div id="map_canvas"></div>
             </div>
             <div class="container">
-                <div class="content-link col-md-12">
-                    <div id="contact_form" class="top-score-title col-md-9 align-center">
-                        <h3>Kontakt <span>forma</span><span class="point-little">.</span></h3>
-                        <form method="post">
-
-                            <div class="name">
-                                <label for="name">* Ime:</label><div class="clear"></div>
-                                <input id="name" name="name" type="text" placeholder="Petar Petrović" required="" />
-                            </div>
-                            <div class="email">
-                                <label for="email">* Email:</label><div class="clear"></div>
-                                <input id="email" name="email" type="text" placeholder="example@domain.com" required="" />
-                            </div>
-                            <div class="message">
-                                <label for="message"> Poruka:</label>
-                                <textarea name="messagetext" class="txt-area" id="message" cols="30" rows="4"></textarea>
-                            </div>
-
-                            <div id="loader">
-                                <input type="submit" value="Submit" />
-                            </div>
-                            <p class="success">Vaša poruka je uspešno poslata.</p>
-                            <p class="error">E-mail mora biti ispravan i poruka ora biti duža od 20 karaktera.</p>
-                        </form>
-                    </div>
+                <div >
+              
                     <div id="info-company" class="top-score-title col-md-3 align-center">
                         <h3>Info</h3>
                         <div class="col-md-12">
@@ -254,6 +164,10 @@
         </div>
     </footer>
     </section>-->
+
+
+
+
     <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
     <!--MENU-->
@@ -274,8 +188,8 @@
         // the animation between a BOUNCE animation and no animation.
         $(document).ready(function ($) {
             "use strict";
-            var lokacija = new google.maps.LatLng(44.823158, 20.396684);
-            var parliament = new google.maps.LatLng(44.8262436, 20.395321);
+            var stockholm = new google.maps.LatLng(59.32522, 18.07002);
+            var parliament = new google.maps.LatLng(59.327383, 18.06747);
             var image = 'images/marker.png';
             var marker;
             var map;
@@ -301,7 +215,7 @@
                 var mapOptions = {
                     zoom: 14,
                     styles: styleArray,
-                    center: lokacija
+                    center: stockholm
                 };
 
                 map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
@@ -330,38 +244,11 @@
         });
     </script>
     <script type="text/javascript">
-        /********************************************
-        CONTACT
-        ********************************************/
-        $(document).ready(function () {
-            $(function () {
-                "use strict";
-                $('#contact_form').submit(function (e) {
-                    e.preventDefault();
-                    var form = $(this);
-                    var name = $("#name").val();
-                    var email = $("#email").val();
-                    var text = $("#message").val();
-                    var dataString = 'name=' + name + '&email=' + email + '&message=' + text;
-                    function isValidEmail(emailAddress) {
-                        var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-                        return pattern.test(emailAddress);
-                    };
-                    if (isValidEmail(email) && (text.length > 20) && (name.length > 1)) {
-                        $.ajax({
-                            type: 'POST',
-                            url: "contact_form/contact_process.php",
-                            data: dataString,
-                            success: function () {
-                                $('.success').fadeIn(1000);
-                            }
-                        });
-                    } else {
-                        $('.error').fadeIn(1000);
-                    }
-                });
-            });
-        });
+/********************************************
+CONTACT
+********************************************/
+
     </script>
 </body>
 </html>
+

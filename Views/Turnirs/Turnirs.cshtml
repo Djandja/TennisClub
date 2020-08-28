@@ -41,211 +41,63 @@
 
 </head>
 <body>
-    <!--SECTION HEADER-->
-    <section class="container box-logo">
-        <header>
-            <div class="content-logo">
-
-                <div class="logo">
-                    <img src="~/img/logo2 .png" alt="" />
-                </div>
-                <div class="box-login">
-                    <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                    <a asp-area="" asp-controller="Account" asp-action="Register">Sign up</a>
-                </div>
-
-            </div>
-            <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
-        </header>
-    </section>
-    <!--SECTION CONTAINER-->
-    <section class="drawer">
-        <section id="summary">
-            <div class="general">
-                <!--SECTION MENU-->
-                <div class="box-menu">
-                    <nav id="cbp-hrmenu" class="container cbp-hrmenu">
-                        <ul class="col-md-12">
-                            <li>
-                                <a class="lnk-menu" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
-                            </li>
-                            <li>
-                                <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="AboutUs">O NAMA</a>
-                            </li>
-                            <li>
-                                <a class="lnk-menu" href="results.html">TENISKA ŠKOLA</a>
-                            </li>
-                            <li>
-                                <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Gallery">GALERIJA SLIKA</a>
-                            </li>
-                            <li>
-                                <a class="lnk-menu" href="shops.html">TURNIRI</a>
-                            </li>
-                            <li>
-                                <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Contact">KONTAKT</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <!--CONTENT NEXT MATCH-->
-
-                <div id="next-match">
-                    <div class="container">
-                        <div class="next-match-news top-match col-xs-12 col-md-12">
-                            <h3 class="news-title n-match">Next <span>Match</span><span class="point-little">.</span></h3>
-                            <div class="other-match col-md-4">
-                                <div class="score-next-time">
-                                    <div class="circle-ico"><p>ATP</p></div>
-                                    <p class='sub-result'>Qatar ExonMobil</p>
-                                    <p class="dd-news-date">April 22, 2014 ~ 2:30pm</p>
-                                    <p class="dd-news-date">Canada Stadium</p>
-                                </div>
-                                <div class="score-next">
-                                    <div class="match-flags"><img src="images/stadium3.jpg" alt="" /></div>
-                                    <div class="match-team"><span>Fernand</span> <span class="txt-vs"> - vs - </span> <span>Brain</span></div>
-                                    <div class="match-flags">
-                                        <ul class="social">
-                                            <li><a class="m-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            @*<br />
-                            <div class="other-match col-md-4">
-                                <div class="score-next-time">
-                                    <div class="circle-ico"><p>WTP</p></div>
-                                    <p class='sub-result'>Apia International</p>
-                                    <p class="dd-news-date">April 22, 2014 ~ 2:30pm</p>
-                                    <p class="dd-news-date">Canada Stadium</p>
-                                </div>
-                                <div class="score-next">
-                                    <div class="match-flags"><img src="images/stadium2.jpg" alt="" /></div>
-                                    <div class="match-team"><span>Figo</span> <span class="txt-vs"> - vs - </span> <span>Siron</span></div>
-                                    <div class="match-flags">
-                                        <ul class="social">
-                                            <li><a class="m-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="other-match col-md-4 other-last">
-                                <div class="score-next-time">
-                                    <div class="circle-ico"><p>ATP</p></div>
-                                    <p class='sub-result'>Heineken Open </p>
-                                    <p class="dd-news-date">April 22, 2014 ~ 2:30pm</p>
-                                    <p class="dd-news-date">Canada Stadium</p>
-                                </div>
-                                <div class="score-next">
-                                    <div class="match-flags"><img src="images/stadium3.jpg" alt="" /></div>
-                                    <div class="match-team"><span>Samuel</span> <span class="txt-vs"> - vs - </span> <span>Paul</span></div>
-                                    <div class="match-flags">
-                                        <ul class="social">
-                                            <li><a class="m-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>*@
-
-                            </div>
-
-                        </div>
+    <div id="next-match">
+        <div class="container">
+            <div class="next-match-news top-match col-xs-12 col-md-12">
+                <h3 class="news-title n-match">
+                    I <span>Dečiji turnir</span><span class="point-little">.</span><br />
+                    II<span>Turnir za odrasle</span><span class="point-little">.</span>
+                </h3>
+                <div class="other-match col-md-4">
+                    <div class="score-next-time">
+                        <div class="circle-ico"><p>I</p></div>
+                        <p class='sub-result'>Septembar 24-25.</p>
+                        <p class="dd-news-date"> 10:30 ~ 13:00</p>
+                        <p class="dd-news-date">Tereni 1 i 2</p>
                     </div>
-                </div>
-                
-
-
-                <!--SECTION SPONSOR-->
-                <div class="container">
-                    <div class="client-sport client-sport-nomargin home-pg">
-                        <div class="content-banner">
-                            <ul class="sponsor second">
-                                <li><img src="images/sponsor/2/02.png" alt="" /></li>
-                                <li><img src="images/sponsor/2/03.png" alt="" /></li>
-                                <li><img src="images/sponsor/2/04.png" alt="" /></li>
-                                <li><img src="images/sponsor/2/06.png" alt="" /></li>
-                                <li><img src="images/sponsor/2/08.png" alt="" /></li>
-                                <li><img src="images/sponsor/2/13.png" alt="" /></li>
+                    <div class="score-next">
+                        <div class="match-flags">
+                            <img src="~/images/stadium3.jpg" alt="" />
+                        </div>
+                        @*<div class="match-team"><span>Fernand</span> <span class="txt-vs"> - vs - </span> <span>Brain</span></div>*@
+                        <div class="match-flags">
+                            <ul class="social">
+                                <li><a class="m-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!--SECTION FOOTER-->
-        <section id="footer-tag">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <h3>About Us</h3>
-                        <p>
-                            Hvala vam što ste posetili www.tkgazela.co.rs. Naša misija je da pružimo
-                            nepristrasne informacije i resurse kako bismo pomogli bilo kojem ljubitelju sporta
-                            da lako dobije sve potrebne informacije i rezerviše svoj termin.
-                        </p>
-                        <p>
-                            Dodaj neki tekst bla bla
-                        </p>
+                <div class="other-match col-md-4">
+                    <div class="score-next-time">
+                        <div class="circle-ico"><p>II</p></div>
+                        <p class='sub-result'>Septembar 26-29.</p>
+                        <p class="dd-news-date"> 09:00 ~ 13:00</p>
+                        <p class="dd-news-date">Tereni 1,2,4</p>
                     </div>
-                    @*<div class="col-md-4 cat-footer">
-                            <div class="footer-map"></div>
-                            <h3 class='last-cat'>Last Categories</h3>
-                            <ul class="last-tips">
-                                <li><a href="tournaments.html">Tournaments</a></li>
-                                <li><a href="results.html">All Results</a></li>
-                                <li><a href="matches.html">Matches London ATP</a></li>
-                                <li><a href="matches.html">Double ATP</a></li>
-                                <li><a href="matches.html">Double WTP</a></li>
-                                <li><a href="shops.html">Shop Best Price</a></li>
+                    <div class="score-next">
+                        <div class="match-flags">
+                            <img src="~/images/stadium3.jpg" alt="" />
+                        </div>
+                        @*<div class="match-team"><span>Fernand</span> <span class="txt-vs"> - vs - </span> <span>Brain</span></div>*@
+                        <div class="match-flags">
+                            <ul class="social">
+                                <li><a class="m-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4 footer-newsletters">
-                            <h3>Newsletters</h3>
-                            <form method="post">
-                                <div class="name">
-                                    <label for="name">* Name:</label><div class="clear"></div>
-                                    <input id="name" name="name" type="text" placeholder="e.g. Mr. John Doe" required="" />
-                                </div>
-                                <div class="email">
-                                    <label for="email">* Email:</label><div class="clear"></div>
-                                    <input id="email" name="email" type="text" placeholder="example@domain.com" required="" />
-                                </div>
-                                <div id="loader">
-                                    <input type="submit" value="Submit" />
-                                </div>
-                            </form>
-                        </div>*@
-                    <div class="col-xs-12">
-                        <ul class="social">
-                            <li><a href="https://www.facebook.com/tkgazela/" rel="stylesheet"><i class="fab fa-facebook-square"></i></a></li>
-                            <li><a href="http://maliigraci.rs/klubovi/tk-gazela/"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://www.instagram.com/maliigraci/"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-digg"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-
-                        </ul>
                     </div>
                 </div>
+
             </div>
-        </section>
-        <footer>
-            <div class="col-md-12 content-footer">
-                <p>© www.tkgazela.co.rs All rights reserved. </p>
-            </div>
-        </footer>
-    </section><!--Close Top Container-->
+
+        </div>
+    </div>
+
     <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
     <script src="js/jquery.transit.min.js" type="text/javascript"></script>
@@ -420,12 +272,12 @@
     </script>
 
     @*<div class="container body-content">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>*@
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>*@
 
-   
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

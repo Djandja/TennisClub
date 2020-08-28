@@ -1,35 +1,373 @@
-﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+﻿
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="about-us py-5 " id="about-us">
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <h1 class='text-success'>Welcome!</h1>
-                <h2>O klubu</h2>
-                <hr>
-                TK Gazela je samostalna sportska organizacija osnovana radi organizovanog bavljenja tenisom sa statusom udruženja građanja. Klub je osnovan 1986. godine pod imenom
-                TK Milentije Popović, a 1997. godine je promenio status i ime u TK Gazela. Po vremenu nastanka TK Gazela je četvrti klub u Beogradu. </p>
-                <p>
-                    Klub raspolaže sa četiri osvetljena, šljakasta terena, klupskom zgradom sa uređenim svlačionicama, kancelarijom i internim klub restoranom. Od nastanka pa do danas,
-                    klub posluje kao neprofitna organizacija i sve prihode koje ostvaruje ulaže u sopstveni razvoj i školu tenisa.
-                </p>
 
-                <h2>Menadžment kuba</h2>
-                <p>
-                Najviši zakonodavni organ u teniskom klubu je skupština TK Gazela. Skupštinu čine redovni i počasni članovi.
-                Svi članovi kluba imaju pravo da biraju i da budu birani u izvršne organe kluba, a to su: Upravni odbor, Nadzorni odbor i Predsednik kluba.
-                Klub trenutno ima oko 200 članova koji se bave takmičarskim i rekreativnim tenisom.
-                </p>
+<head>
+    <title>TENNIS CLUB bootstrap responsive theme</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-                <button type="button" class="btn btn-success">Let's Know More</button>
+    <meta name="author" content="corsini" />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+
+    <link href='../../../../../../fonts.googleapis.com/cssa83f.css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css' />
+    <link href='../../../../../../fonts.googleapis.com/css912f.css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css' />
+    <link href='../../../../../../fonts.googleapis.com/css27c4.css?family=Raleway:400,100,300,200,500,600,700,800,900' rel='stylesheet' type='text/css' />
+    <link href='../../../../../../fonts.googleapis.com/cssc601.css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
+    <link href="css/fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!--Video Porfolio-->
+    <link href="css/stapel.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+
+
+    <link href="css/component.css" rel="stylesheet" type="text/css" />
+    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_dir.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/animate.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/component.css" rel="stylesheet" />
+    <link href="~/css/fonts.css" rel="stylesheet" />
+    <link href="~/css/jquery.bxslider.css" rel="stylesheet" />
+    <link href="~/css/jquery.jscrollpane.css" rel="stylesheet" />
+    <link href="~/css/prettyPhoto.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/stapel.css" rel="stylesheet" />
+    <link href="~/css/style_dir.css" rel="stylesheet" />
+
+
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery.bxslider.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.mousewheel.js"></script>
+    <script src="~/js/jquery.stapel.js"></script>
+    <script src="~/js/jquery.transit.min.js"></script>
+    <script src="~/js/jquery.ui.totop.js"></script>
+    <script src="~/js/jquery-1.10.2.js"></script>
+    <script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/js/modernizr.custom.63321.js"></script>
+
+    <script src="~/js/gallery/isotope.js"></script>
+    <script src="~/js/gallery/jquery.prettyPhoto.js"></script>
+
+    <script src="~/js/menu/cbpHorizontalMenu.js"></script>
+    <script src="~/js/menu/modernizr.custom.js"></script>
+
+
+</head>
+
+<body>
+    <section class="drawer">
+        <section id="summary">
+            <div class="bbtxt-content">
+
+                <div class="container">
+                    <div class="col-xs-12 bbtxt-box">
+                        <h4><i class="fa fa-quote-left"></i>O klubu <span class="middle-txt"> </span><i class="fa fa-quote-right"></i></h4>
+                        <p>
+                            TK Gazela je samostalna sportska organizacija osnovana radi organizovanog bavljenja tenisom sa statusom udruženja građanja. Klub je osnovan 1986. godine pod imenom
+                            TK Milentije Popović, a 1997. godine je promenio status i ime u TK Gazela. Po vremenu nastanka TK Gazela je četvrti klub u Beogradu.
+                        </p>
+
+                        <p>
+                            Klub raspolaže sa četiri osvetljena, šljakasta terena, klupskom zgradom sa uređenim svlačionicama, kancelarijom i internim klub restoranom. Od nastanka pa do danas,
+                            klub posluje kao neprofitna organizacija i sve prihode koje ostvaruje ulaže u sopstveni razvoj i školu tenisa.
+
+                        </p>
+                        <br />
+                        <br />
+                        <h4><i class="fa fa-quote-left"></i>Menadžment kuba  <span class="middle-txt"> </span><i class="fa fa-quote-right"></i></h4>
+                        <p>
+                            Najviši zakonodavni organ u teniskom klubu je skupština TK Gazela. Skupštinu čine redovni i počasni članovi.
+                            Svi članovi kluba imaju pravo da biraju i da budu birani u izvršne organe kluba, a to su: Upravni odbor, Nadzorni odbor i Predsednik kluba.
+                            Klub trenutno ima oko 200 članova koji se bave takmičarskim i rekreativnim tenisom.
+
+                        </p>
+                        <br />
+                        <br />
+                        <p>
+                            Usvojen novi statut TK Gazela
+                            Na sednici održanoj 11.03.2012, Skupština TK Gazela usvojila je novi statut. Statut, usaglašen sa Zakonom o Sportu možete preuzeti ovde
+                            <br />
+                            <style>
+                                #link {
+                                    color: darkorange;
+                                }
+                                /* CSS link color */
+                            </style>
+                            <a style="text-decoration: underline;" id="link" href="http://www.tkgazela.co.rs/STATUT_TENISKOG_KLUBA_GAZELA_WEB.pdf">Status teniskog kluba Gazela</a>
+                        </p>
+                        <br />
+                        
+                    </div>
+                </div>
+
+                @*SECTION SPONSOR*@
+                <div class="container">
+                    <div class="client-sport client-sport-nomargin home-pg">
+                        <div class="content-banner">
+                            <ul class="sponsor second">
+                                <li>
+                                    <img src="~/images/rosa.jpg" />
+                                </li>
+                                <li>
+                                    <img src="~/images/shwepps.png" alt="" />
+                                </li>
+                                <li>
+                                    <img src="~/images/DunavOsiguranje1.jpg" alt="" />
+                                </li>
+                                <li>
+                                    <img src="~/images/download.png" alt="" />
+                                </li>
+                                <li>
+                                    <img src="~/images/dipo.jpg" alt="" />
+                                </li>
+                                <li>
+                                    <img src="~/images/uniqa.jpg" alt="" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                @*SECTION FOOTER*@
+                <section id="footer-tag">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <h3>About Us</h3>
+                                <p>
+                                    Hvala vam što ste posetili www.tkgazela.co.rs. Naša misija je da pružimo
+                                    nepristrasne informacije i resurse kako bismo pomogli bilo kojem ljubitelju sporta
+                                    da lako dobije sve potrebne informacije i rezerviše svoj termin.
+                                </p>
+                                <p>
+                                    Dodaj neki tekst bla bla
+                                </p>
+                            </div>
+                            <div class="col-xs-12">
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/tkgazela/" rel="stylesheet"><i class="fab fa-facebook-square"></i></a></li>
+                                    <li><a href="http://maliigraci.rs/klubovi/tk-gazela/"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/maliigraci/"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-digg"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer>
+                    <div class="col-md-12 content-footer">
+                        <p>© www.tkgazela.co.rs All rights reserved. </p>
+                    </div>
+                </footer>
             </div>
-            <div class="col-md-6">
-                <img src="http://themebubble.com/demo/marketingpro/wp-content/uploads/2016/10/seo-slide.png " alt="">
+        </section>
+    </section>
+
+
+    @*-----------------------------------------------------------------------------------------*@
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.transit.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#textslide p.creative').transition({ scale: 1, opacity: 1, delay: 1000, duration: 2000 });
+        $('#textslide p.linetheme-left').transition({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
+        $('#textslide p.linetheme-right').transition({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
+        $('#textslide .titl-theme').transition({ opacity: 1, delay: 2500, duration: 2000 });
+        $('.slide-txt img').transition({ opacity: 1, delay: 1000, duration: 2000 });
+
+    </script>
+    <!--MENU-->
+    <script src="js/menu/modernizr.custom.js" type="text/javascript"></script>
+    <script src="js/menu/cbpHorizontalMenu.js" type="text/javascript"></script>
+    <!--END MENU-->
+    <!--PERCENTAGE-->
+    <script>
+        $(function () {
+            "use strict";
+            $('.skillbar').each(function () {
+                $(this).find('.skillbar-bar').width(0);
+            });
+
+            $('.skillbar').each(function () {
+                $(this).find('.skillbar-bar').animate({
+                    width: $(this).attr('data-percent')
+                }, 2000);
+            });
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('.tabs .tab-links a').on('click', function (e) {
+                var currentAttrValue = jQuery(this).attr('href');
+
+                // Show/Hide Tabs
+                jQuery('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+
+                // Change/remove current tab to active
+                jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+                e.preventDefault();
+            });
+        });
+    </script>
+
+    <!-- Percentace circolar -->
+    <script src="js/circle/jquery-asPieProgress.js" type="text/javascript"></script>
+    <script src="js/circle/rainbow.min.js" type="text/javascript"></script>
+
+    <!--Gallery-->
+
+    <script src="js/gallery/jquery.prettyPhoto.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $(".portfolio a").hover(function () {
+                $(this).children("img").animate({ opacity: 0.75 }, "fast");
+            }, function () {
+                $(this).children("img").animate({ opacity: 1.0 }, "slow");
+            });
+
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+                animation_speed: 'fast', /* fast/slow/normal */
+                slideshow: 5000, /* false OR interval time in ms */
+                autoplay_slideshow: false, /* true/false */
+                opacity: 0.80, /* Value between 0 and 1 */
+                show_title: true, /* true/false */
+                allow_resize: true, /* Resize the photos bigger than viewport. true/false */
+                default_width: 500,
+                default_height: 344,
+                counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
+                theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+                horizontal_padding: 20, /* The padding on each side of the picture */
+                hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+                wmode: 'opaque' /* Set the flash wmode attribute */
+            });
+        });
+
+    </script>
+
+    <script src="js/gallery/isotope.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(window).load(function () {
+            var $container = $('.albumContainer');
+            $container.isotope({
+                filter: '*',
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+
+            $('.albumFilter li').click(function () {
+                $('.albumFilter .current').removeClass('current');
+                $(this).addClass('current');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
+                return false;
+            });
+        });
+
+    </script>
+    <!-- Button Anchor Top-->
+    <script src="js/jquery.ui.totop.js" type="text/javascript"></script>
+
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="js/jquery.bxslider.js" type="text/javascript"></script>
+    <script>
+        $('#product').bxSlider({
+            minSlides: 3,
+            maxSlides: 5,
+            slideWidth: 215,
+            slideMargin: 10
+        });
+
+
+        $('.vertical-news').bxSlider({
+            mode: 'vertical',
+            slideWidth: 1300,
+            minSlides: 3,
+            slideMargin: 10
+        });
+
+    </script>
+
+
+    <!--Carousel News Vertical-->
+
+    <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="js/jquery.mousewheel.js" type="text/javascript"></script>
+
+    <!--Portfolio Video-->
+    <script src="js/modernizr.custom.63321.js"></script>
+
+    <script type="text/javascript" src="js/jquery.stapel.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var $grid = $('#tp-grid'),
+                $name = $('#name'),
+                $close = $('#close'),
+                $loader = $('<div class="loader"><i></i><i></i><i></i><i></i><i></i><i></i><span>Loading...</span></div>').insertBefore($grid),
+                stapel = $grid.stapel({
+                    onLoad: function () {
+                        $loader.remove();
+                    },
+                    onBeforeOpen: function (pileName) {
+                        $name.html(pileName);
+                    },
+                    onAfterOpen: function (pileName) {
+                        $close.show();
+                    }
+                });
+
+            $close.on('click', function () {
+                $close.hide();
+                $name.empty();
+                stapel.closePile();
+            });
+
+        });
+    </script>
+
+    @*<div class="container body-content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>*@
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - TennisClub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
-        </div>
-    </div>
-</section>
+        </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>

@@ -23,5 +23,7 @@ namespace TennisClub.Models
         [StringLength(50)]
         [Display(Name = "Role:")]
         public string RoleName { get; set; }
+
+        public List<Reservations> Reservations { get; set; }
     }
 }
