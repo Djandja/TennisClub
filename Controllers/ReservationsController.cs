@@ -60,7 +60,7 @@ namespace TennisClub.Controllers
                 {
                 _context.Reservations.Add(e);
                 }
-                 _context.SaveChanges();
+            _context.SaveChanges();
                 status = true;
 
             return new JsonResult(new { Data = new { status = status } });

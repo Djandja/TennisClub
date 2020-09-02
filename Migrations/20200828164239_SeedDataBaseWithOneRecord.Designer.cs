@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TennisClub.Data.Context;
 
 namespace TennisClub.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200828164239_SeedDataBaseWithOneRecord")]
+    partial class SeedDataBaseWithOneRecord
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -264,37 +266,6 @@ namespace TennisClub.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("TennisClub.Models.TurnirsViewModel.Turnirs", b =>
-                {
-                    b.Property<int>("TurnirID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("NumberOfParticipants")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TurnirsTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("TurnirID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Turnirs");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -350,13 +321,6 @@ namespace TennisClub.Migrations
                 {
                     b.HasOne("TennisClub.Models.ApplicationUser", "User")
                         .WithMany("Reservations")
-                        .HasForeignKey("UserID");
-                });
-
-            modelBuilder.Entity("TennisClub.Models.TurnirsViewModel.Turnirs", b =>
-                {
-                    b.HasOne("TennisClub.Models.ApplicationUser", "User")
-                        .WithMany("Turnirs")
                         .HasForeignKey("UserID");
                 });
 #pragma warning restore 612, 618

@@ -95,18 +95,29 @@ namespace TennisClub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
+          
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
                 ApplicationUser user = _mapper.Map<ApplicationUser>(model);
                 //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            
+                if (model.Role == null)
+                {
+                    user.RoleName = "User";
+                    model.Role = "User";
+                }
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
                     await _userManager.AddToRoleAsync(user, model.Role);
 
-                    //await _signInManager.SignInAsync(user, isPersistent: false);
+                    if (model.Role.Equals("User"))
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                    }
+                 
                     _logger.LogInformation("User created a new account with password.");
                     //???  return RedirectToLocal(returnUrl);
                     return RedirectToAction("Index", "Home");
@@ -182,12 +193,6 @@ namespace TennisClub.Controllers
             _logger.LogInformation("User logged out.");
             return RedirectToAction("Login");
         }
-
-
-
-
-
-
 
 
 

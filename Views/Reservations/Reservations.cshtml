@@ -1,12 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewBag.Title = "Index";
 }
 
+<h2>Index</h2>
 <div id="calender"></div>
 
-<div id="myModal" class="modal fade" role="dialog">
+@*<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,8 +26,7 @@
             </div>
         </div>
     </div>
-</div>
-
+</div>*@
 
 <div id="myModalSave" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -61,7 +59,7 @@
                     <div class="form-group" id="divEndDate" style="display:none">
                         <label>End</label>
                         <div class="input-group date" id="dtp2">
-                            <input type="text" id="txtEnd" class="form-control" />
+                            <input type="text" id="txtEnd" class="form-control"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -75,7 +73,7 @@
                         <label>Theme Color</label>
                         <select id="ddThemeColor" class="form-control">
                             <option value="">Default</option>
-                            <option value="orange">Orange</option>
+                            <option value="red">Red</option>
                             <option value="blue">Blue</option>
                             <option value="black">Black</option>
                             <option value="green">Green</option>
@@ -89,8 +87,6 @@
     </div>
 </div>
 
-
-
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
@@ -99,13 +95,12 @@
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <script>
         $(document).ready(function () {
             var reservations = [];
             var selectedReservation = null;
-
             FetchReservationAndRenderCalendar();
             function FetchReservationAndRenderCalendar() {
                 reservations = [];
@@ -118,6 +113,8 @@
                                 reservationID: v.ReservationID,
                                 title: v.Subject,
                                 description: v.Description,
+                                //Start: data.Start.toISOString(),
+                                //start: moment(v.Start),
                                 start: moment(v.Start),
                                 end: v.End != null ? moment(v.End) : null,
                                 color: v.ThemeColor,
@@ -131,8 +128,8 @@
                         alert('failed');
                     }
                 })
-
             }
+
             function GenerateCalender(reservations) {
                 $('#calender').fullCalendar('destroy');
                 $('#calender').fullCalendar({
@@ -144,11 +141,12 @@
                         center: 'title',
                         right: 'month,basicWeek,basicDay,agenda'
                     },
+
                     reservationLimit: true,
                     reservationColor: '#378006',
                     reservations: reservations,
                     reservationClick: function (calReservation, jsReservation, view) {
-                        selectedReservation = calReservation
+                        selectedReservation = calReservation;
                         $('#myModal #reservationTitle').text(calReservation.title);
                         var $description = $('<div/>');
                         $description.append($('<p/>').html('<b>Start:</b>' + calReservation.start.format("DD-MMM-YYYY HH:mm a")));
@@ -160,7 +158,6 @@
 
                         $('#myModal').modal();
                     },
-
                     selectable: true,
                     select: function (start, end) {
                         selectedReservation = {
@@ -188,7 +185,6 @@
                         };
                         SaveReservation(data);
                     }
-
                 })
             }
 
@@ -200,7 +196,7 @@
                 if (selectedReservation != null && confirm('Are you sure?')) {
                     $.ajax({
                         type: "POST",
-                        url: '/Reservation/DeleteReservation',
+                        url: '/Reservations/DeleteReservation',
                         data: { 'reservationID': selectedReservation.reservationID },
                         success: function (data) {
                             if (data.status) {
@@ -215,11 +211,9 @@
                     })
                 }
             })
-
             $('#dtp1,#dtp2').datetimepicker({
                 format: 'DD/MM/YYYY HH:mm A'
             });
-
             $('#chkIsFullDay').change(function () {
                 if ($(this).is(':checked')) {
                     $('#divEndDate').hide();
@@ -228,7 +222,6 @@
                     $('#divEndDate').show();
                 }
             });
-
             function openAddEditForm() {
                 if (selectedReservation != null) {
                     $('#hdReservationID').val(selectedReservation.reservationID);
@@ -243,7 +236,6 @@
                 $('#myModal').modal('hide');
                 $('#myModalSave').modal();
             }
-
             $('#btnSave').click(function () {
                 //Validation/
                 if ($('#txtSubject').val().trim() == "") {
@@ -270,22 +262,31 @@
                 var data = {
                     ReservationID: $('#hdReservationID').val(),
                     Subject: $('#txtSubject').val().trim(),
-                    Start: $('#txtStart').val().trim(),
-                    End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
+                    Start: moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate(),
+                    //Start: (new Date()).toISOString(),
+                    //End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
+                    End: $('#chkIsFullDay').is(':checked') ? null : moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate(),
                     Description: $('#txtDescription').val(),
                     ThemeColor: $('#ddThemeColor').val(),
                     IsFullDay: $('#chkIsFullDay').is(':checked')
                 }
                 SaveReservation(data);
-                // call function for submit data to the server 
+                // call function for submit data to the server
             })
-
 
             function SaveReservation(data) {
                 $.ajax({
                     type: "POST",
                     url: '/Reservations/SaveReservation',
-                    data: data,
+                    data: {
+                        ReservationID: data.ReservationID,
+                        Subject: data.Subject,
+                        Start: data.Start.toISOString(),
+                        End: data.End.toISOString(),
+                        Description: data.Description,
+                        ThemeColor: data.ThemeColor,
+                        IsFullDay: data.IsFullDay
+                    },
                     success: function (data) {
                         if (data.status) {
                             //Refresh the calender
@@ -298,10 +299,6 @@
                     }
                 })
             }
-
-
-
-
         })
     </script>
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TennisClub.Models;
+using TennisClub.Models.TurnirsViewModel;
 
 namespace TennisClub.Data.Context
 {
@@ -17,6 +18,8 @@ namespace TennisClub.Data.Context
 
         public DbSet<Reservations> Reservations { get; set; }
 
+        public DbSet<Turnirs> Turnirs { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -28,6 +31,25 @@ namespace TennisClub.Data.Context
                 .HasOne(p => p.User)
                 .WithMany(b => b.Reservations)
                 .HasForeignKey(p => p.UserID);
+
+
+            builder.Entity<Turnirs>()
+                .HasOne(p => p.User)
+                .WithMany(b => b.Turnirs)
+                .HasForeignKey(p => p.UserID);
+
+            //builder.Entity<Reservations>().HasData(
+            //    new Reservations
+            //    {
+            //        ReservationID = 4,
+            //        Subject="lalal",
+            //        Description="kakkaka",
+            //        Start= new DateTime(2020,8,27),
+            //        End= new DateTime(2020, 8, 28),
+            //        ThemeColor="blue",
+            //        IsFullDay=true,
+            //    }
+            //    ) ;
         }
     }
 }

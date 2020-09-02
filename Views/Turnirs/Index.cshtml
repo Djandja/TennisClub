@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TennisClub.Models.TurnirsViewModel.Turnirs>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Registar turnira</h4>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TurnirsTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfParticipants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-outline-success">
+                <i class="fa-align-right fa-plus-square"></i>
+                Dodaj novi turnir</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurnirsTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfParticipants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.TurnirID"><i class="fas fa-edit fa-lg"></i></a> 
+                <a asp-action="Delete" asp-route-id="@item.TurnirID" class="text-danger ml-1" onclick="return confirm('Da li ste sigurni da želite da izvršite brisanje?')">
+    @*<i class="fa fa-remove"></i>*@Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

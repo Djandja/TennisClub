@@ -15,6 +15,9 @@ using Microsoft.Extensions.Hosting;
 //using TennisClub.Helpers.UserHelper;
 using TennisClub.Models;
 using TennisClub.Data.Context;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using TennisClub.Helpers.UserHelper;
 //using TennisClub.Repositories;
 
 
@@ -42,6 +45,8 @@ namespace TennisClub
           .AddEntityFrameworkStores<ApplicationDbContext>()
           .AddDefaultTokenProviders();
 
+            services.AddScoped<IUserHelper, UserHelper>();
+
             services.AddAutoMapper(typeof(Startup));
         }
 
@@ -58,7 +63,27 @@ namespace TennisClub
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-           // app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
+
+            var culture = CultureInfo.CreateSpecificCulture("en-US");
+            var dateformat = new DateTimeFormatInfo
+            {
+                ShortDatePattern = "MM/dd/yyyy",
+                LongDatePattern = "MM/dd/yyyy hh:mm:ss tt"
+            };
+            culture.DateTimeFormat = dateformat;
+
+            var supportedCultures = new[]
+            {
+    culture
+};
+
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(culture),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
             app.UseStaticFiles();
 
           

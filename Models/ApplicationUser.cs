@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TennisClub.Models.TurnirsViewModel;
 
 namespace TennisClub.Models
 {
@@ -25,5 +26,7 @@ namespace TennisClub.Models
         public string RoleName { get; set; }
 
         public List<Reservations> Reservations { get; set; }
+        public List<Turnirs> Turnirs { get; set; }
+
     }
 }

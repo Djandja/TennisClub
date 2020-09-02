@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    var loggedInUserRole = "";
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        loggedInUserRole = UserManager.FindByIdAsync(UserManager.GetUserId(HttpContextAccessor.HttpContext.User)).Result.RoleName;
+    }
+
+}
+<!DOCTYPE html>
 
 <html xmlns="../../../../../../www.w3.org/1999/xhtml/index.html">
 <head>
@@ -10,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
     <link href='../../../../../../fonts.googleapis.com/cssa83f.css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css' />
     <link href='../../../../../../fonts.googleapis.com/css912f.css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css' />
@@ -18,7 +34,7 @@
     <link href='../../../../../../fonts.googleapis.com/cssc601.css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
     <link href="css/fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!--Video Porfolio-->
+    Video Porfolio
     <link href="css/stapel.css" rel="stylesheet" type="text/css" />
     <link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css" />
     <link href="css/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
@@ -63,6 +79,7 @@
 
 
 </head>
+
 <body>
     <!--SECTION HEADER-->
     <section class="container box-logo">
@@ -73,8 +90,16 @@
                     <img src="~/img/logo2 .png" alt="" />
                 </div>
                 <div class="box-login">
-                    <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                    <a asp-area="" asp-controller="Account" asp-action="Register">Sign up</a>
+                    @await Html.PartialAsync("_LoginPartial")
+                    @if (loggedInUserRole == "Administrator" || loggedInUserRole == "Trainer")
+                    {
+                        <a asp-area="" asp-controller="Account" asp-action="Register">Register new user</a>
+                    }
+
+                    @if (!SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>}
+
                 </div>
 
             </div>
@@ -102,7 +127,7 @@
                                 <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Gallery">GALERIJA SLIKA</a>
                             </li>
                             <li>
-                                <a class="lnk-menu" asp-area="" asp-controller="Turnirs" asp-action="Turnirs">TURNIRI</a>
+                                <a class="lnk-menu" asp-area="" asp-controller="Turnirs" asp-action="Index">TURNIRI</a>
                             </li>
                             <li>
                                 <a class="lnk-menu" asp-area="" asp-controller="StaticPages" asp-action="Contact">KONTAKT</a>
@@ -115,155 +140,154 @@
                 </div>
 
                 @*<div class="content-result content-result-news col-md-12">
-                    <div id="textslide" class="effect-backcolor">
-                        <div class="container">
-                            <div class="col-md-12 slide-txt">
-                                <p class='sub-result aft-little welcome linetheme-left'>TENISKI KLUB</p>
-                                <p class='sub-result aft-little linetheme-right'>GAZELA<span class="point-big">.</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="slidematch" class="col-xs-12 col-md-12">
-                    <div class="content-match-team-wrapper">
-                        <span class="gdlr-left">Bul. Arsenija Čarnojevića </span>
-                        <span class="gdlr-upcoming-match-versus">59a</span>
-                        <span class="gdlr-right">Blok 23</span>
-                    </div>
-                    <div class="content-match-team-time">
-                        <span class="gdlr-left">011/301-5097 </span>
-                        <span class="gdlr-right">   tkgazela@eunet.rs</span>
-                    </div>
-                </div>
-
-
-
-                <div class="bbtxt-content">
-
-                    <div class="container">
-                        <div class="col-xs-12 bbtxt-box">
-                            <h4><i class="fa fa-quote-left"></i>Slava <span class="middle-txt"> kluba</span><i class="fa fa-quote-right"></i></h4>
-                            <p>
-                                22 Maj, nazvan je kod Srba letnjim ili mladim Sv. Nikolom.
-                                Slavi se u spomen na prenos njegovih svetih moštiju 1087.godine iz Mire
-                                u Maloj Aziji u italijanski grad Bari, gde se i danas nalaze.
-                            </p>
-                            <p>
-                                Dragi članovi i prijatelji kluba,
-                                pozivamo vas da zajedno proslavimo slavu u ponedeljak 22 Maja , od 09 časova.
-                                Dobro došli!
-                                Teniski klub Gazela
-                            </p>
-                            <br />
-                            <br />
-                            <h4><i class="fa fa-quote-left"></i>Skupština  <span class="middle-txt"> TK Gazela</span><i class="fa fa-quote-right"></i></h4>
-                            <p>
-                                Redovna godišnja skupština TK Gazela odrzace se u subotu 20.05.2017. godine u 11 casova
-                                u OŠ Laza Kostic (glavni ulaz, prizemlje) u ulici Milentija Popovica 72, Novi Beograd
-                            </p>
-                            <p>
-                                <style>
-                                    #link {
-                                        color: darkorange;
-                                    }
-                                    /* CSS link color */
-                                </style>
-                                <a style="text-decoration: underline;" id="link" href="http://www.tkgazela.co.rs/Skupstina_2017.pdf">Odluku o sazivanju skupstine i dnevni red možete preuzeti ovde.</a>
-                            </p>
-                            <br />
-                            <br />
-                            <h4><i class="fa fa-quote-left"></i>2020/2021<span class="point-big">.</span> <span class="middle-txt">Sezona<span class="point-little">.</span></span><i class="fa fa-quote-right"></i></h4>
-                            <p>Za informacije o slobodnim terminima kao i upis u tenisku školu za najmlađe, svi zainteresovani se mogu javiti mailom na tkgazela@eunet.rs ili telefonom 011/301-5097.</p>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div id="resultsPoint">
-                    <div class="container">
-                        <div class="next-match-news top-match col-xs-12 col-md-12">
-
-
-
-                            <div class="main">
-                                <div class="tabs animated-slide-2">
+                        <div id="textslide" class="effect-backcolor">
+                            <div class="container">
+                                <div class="col-md-12 slide-txt">
+                                    <p class='sub-result aft-little welcome linetheme-left'>TENISKI KLUB</p>
+                                    <p class='sub-result aft-little linetheme-right'>GAZELA<span class="point-big">.</span></p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-                </div>*@
+
+                    <div id="slidematch" class="col-xs-12 col-md-12">
+                        <div class="content-match-team-wrapper">
+                            <span class="gdlr-left">Bul. Arsenija Čarnojevića </span>
+                            <span class="gdlr-upcoming-match-versus">59a</span>
+                            <span class="gdlr-right">Blok 23</span>
+                        </div>
+                        <div class="content-match-team-time">
+                            <span class="gdlr-left">011/301-5097 </span>
+                            <span class="gdlr-right">   tkgazela@eunet.rs</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="bbtxt-content">
+
+                        <div class="container">
+                            <div class="col-xs-12 bbtxt-box">
+                                <h4><i class="fa fa-quote-left"></i>Slava <span class="middle-txt"> kluba</span><i class="fa fa-quote-right"></i></h4>
+                                <p>
+                                    22 Maj, nazvan je kod Srba letnjim ili mladim Sv. Nikolom.
+                                    Slavi se u spomen na prenos njegovih svetih moštiju 1087.godine iz Mire
+                                    u Maloj Aziji u italijanski grad Bari, gde se i danas nalaze.
+                                </p>
+                                <p>
+                                    Dragi članovi i prijatelji kluba,
+                                    pozivamo vas da zajedno proslavimo slavu u ponedeljak 22 Maja , od 09 časova.
+                                    Dobro došli!
+                                    Teniski klub Gazela
+                                </p>
+                                <br />
+                                <br />
+                                <h4><i class="fa fa-quote-left"></i>Skupština  <span class="middle-txt"> TK Gazela</span><i class="fa fa-quote-right"></i></h4>
+                                <p>
+                                    Redovna godišnja skupština TK Gazela odrzace se u subotu 20.05.2017. godine u 11 casova
+                                    u OŠ Laza Kostic (glavni ulaz, prizemlje) u ulici Milentija Popovica 72, Novi Beograd
+                                </p>
+                                <p>
+                                    <style>
+                                        #link {
+                                            color: darkorange;
+                                        }
+                                        /* CSS link color */
+                                    </style>
+                                    <a style="text-decoration: underline;" id="link" href="http://www.tkgazela.co.rs/Skupstina_2017.pdf">Odluku o sazivanju skupstine i dnevni red možete preuzeti ovde.</a>
+                                </p>
+                                <br />
+                                <br />
+                                <h4><i class="fa fa-quote-left"></i>2020/2021<span class="point-big">.</span> <span class="middle-txt">Sezona<span class="point-little">.</span></span><i class="fa fa-quote-right"></i></h4>
+                                <p>Za informacije o slobodnim terminima kao i upis u tenisku školu za najmlađe, svi zainteresovani se mogu javiti mailom na tkgazela@eunet.rs ili telefonom 011/301-5097.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="resultsPoint">
+                        <div class="container">
+                            <div class="next-match-news top-match col-xs-12 col-md-12">
+
+
+
+                                <div class="main">
+                                    <div class="tabs animated-slide-2">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>*@
 
 
 
                 <!--SECTION SPONSOR-->
                 <!--<div class="container">
-                    <div class="client-sport client-sport-nomargin home-pg">
-                        <div class="content-banner">
-                            <ul class="sponsor second">
-                                <li>
-                                    <img src="~/images/rosa.jpg" />
-                                </li>
-                                <li>
-                                    <img src="~/images/shwepps.png" alt="" />
-                                </li>
-                                <li>
-                                    <img src="~/images/DunavOsiguranje1.jpg" alt="" />
-                                </li>
-                                <li>
-                                    <img src="~/images/download.png" alt="" />
-                                </li>
-                                <li>
-                                    <img src="~/images/dipo.jpg" alt="" />
-                                </li>
-                                <li>
-                                    <img src="~/images/uniqa.jpg" alt="" />
-                                </li>
-                            </ul>
+                            <div class="client-sport client-sport-nomargin home-pg">
+                                <div class="content-banner">
+                                    <ul class="sponsor second">
+                                        <li>
+                                            <img src="~/images/rosa.jpg" />
+                                        </li>
+                                        <li>
+                                            <img src="~/images/shwepps.png" alt="" />
+                                        </li>
+                                        <li>
+                                            <img src="~/images/DunavOsiguranje1.jpg" alt="" />
+                                        </li>
+                                        <li>
+                                            <img src="~/images/download.png" alt="" />
+                                        </li>
+                                        <li>
+                                            <img src="~/images/dipo.jpg" alt="" />
+                                        </li>
+                                        <li>
+                                            <img src="~/images/uniqa.jpg" alt="" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>-->
+                </section>-->
+                <!--SECTION FOOTER-->
+                @*<section id="footer-tag">
+                        <div class="container">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <h3>About Us</h3>
+                                    <p>
+                                        Hvala vam što ste posetili www.tkgazela.co.rs. Naša misija je da pružimo
+                                        nepristrasne informacije i resurse kako bismo pomogli bilo kojem ljubitelju sporta
+                                        da lako dobije sve potrebne informacije i rezerviše svoj termin.
+                                    </p>
+                                    <p>
+                                        Dodaj neki tekst bla bla
+                                    </p>
+                                </div>
+                                <div class="col-xs-12">
+                                    <ul class="social">
+                                        <li><a href="https://www.facebook.com/tkgazela/" rel="stylesheet"><i class="fab fa-facebook-square"></i></a></li>
+                                        <li><a href="http://maliigraci.rs/klubovi/tk-gazela/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="https://www.instagram.com/maliigraci/"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-digg"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
 
-        <!--SECTION FOOTER-->
-        @*<section id="footer-tag">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <h3>About Us</h3>
-                        <p>
-                            Hvala vam što ste posetili www.tkgazela.co.rs. Naša misija je da pružimo
-                            nepristrasne informacije i resurse kako bismo pomogli bilo kojem ljubitelju sporta
-                            da lako dobije sve potrebne informacije i rezerviše svoj termin.
-                        </p>
-                        <p>
-                            Dodaj neki tekst bla bla
-                        </p>
-                    </div>
-                    <div class="col-xs-12">
-                        <ul class="social">
-                            <li><a href="https://www.facebook.com/tkgazela/" rel="stylesheet"><i class="fab fa-facebook-square"></i></a></li>
-                            <li><a href="http://maliigraci.rs/klubovi/tk-gazela/"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://www.instagram.com/maliigraci/"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-digg"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-
-                        </ul>
-                    </div>
-                </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <div class="col-md-12 content-footer">
+                            <p>© www.tkgazela.co.rs All rights reserved. </p>
+                        </div>
+                    </footer>*@
             </div>
         </section>
-        <footer>
-            <div class="col-md-12 content-footer">
-                <p>© www.tkgazela.co.rs All rights reserved. </p>
-            </div>
-        </footer>*@
-        </div>
-    </section>
     </section>
     <!--Close Top Container-->
     <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
