@@ -23,7 +23,7 @@ namespace TennisClub.Controllers
             _context = context;
         }
 
-        public IActionResult Reservations()
+        public IActionResult NewReservations()
         {
             return View();
         }

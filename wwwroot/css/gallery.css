@@ -1,6 +1,6 @@
-﻿body{
+﻿/*body{
     font-family: sans-serif;
-}
+}*/
 
 h1{
     text-align:center;
@@ -8,7 +8,7 @@ h1{
 
 
 .gallery {
-    margin:10px 50px;
+    margin:130px 50px;
     
 }
 
@@ -26,8 +26,14 @@ h1{
     filter: grayscale(100%);
     transform: scale(1.1);
 }
-
-/*img {
-    border-radius: 8px;
-    width: 230px;
+/*
+.gallery  {
+    height: 950px;
+    padding: 0;
+    background: url("../images/galerijaPozadina.jpg") no-repeat 100% 100%;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }*/

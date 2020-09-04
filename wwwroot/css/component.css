@@ -41,7 +41,7 @@
 
         .cbp-hrmenu > ul > li > a {
             font-weight: 400;
-            font-size: 18px;
+            font-size: 25px;
             padding: 1.4em 2em;
             color: #fff;
             display: inline-block;
@@ -142,7 +142,7 @@
 }
 
 /**** PLAYERS ****/
-.jm-item {
+/*.jm-item {
     padding: 2em 1em 1em 1em;
     display: inline-block;
     text-align: center;
@@ -340,7 +340,7 @@ li.menu-viewall div {
 
     #menu .cbp-hrmenu a.ca-more i {
         float: left;
-    }
+    }*/
 
 /**** BUTTON MENU RESPONSIVE ******/
 .bt-menu {

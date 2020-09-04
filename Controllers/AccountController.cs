@@ -71,7 +71,7 @@ namespace TennisClub.Controllers
 
         public ActionResult Users()
         {
-            var users = _userManager.Users.ToList();
+            var users = _userManager.Users.Where(u => u.RoleName.Equals("Athlete")).ToList();
 
             return View(users);
         }

@@ -48,7 +48,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: #fff !important;
+    background-color: rgba(0,0,0,0.9) !important;
     background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -112,7 +112,7 @@ ul, ol {
 
 .content-logo {
     background-color: #fff;
-    height: 100px;
+    height: 140px;
 }
 
     .content-logo .logo {
@@ -135,12 +135,12 @@ ul, ol {
 /***** LOGIN TOP *****/
 .box-login {
     float: right;
-    margin-top: 45px;
-    margin-right: 15px;
+    margin-top: 60px;
+    margin-right: 35px;
 }
 
     .box-login a {
-        padding: 7px 10px;
+        padding: 15px 18px;
         background: #f59123;
         border: 1px solid #e78315;
         color: #fff;
@@ -261,7 +261,7 @@ ul, ol {
 
 
 .content-result.content-result-news {
-    height: 650px;
+    height: 850px;
     padding: 0;
     background: url("../images/pozadina.jpg") no-repeat 100% 100%;
     background-position: center center;
@@ -604,7 +604,7 @@ div.inner {
 }
 
 .content-result p.sub-result {
-    font-size: 100px;
+    font-size: 140px;
     font-weight: 800;
     text-transform: uppercase;
     font-family: 'Raleway', Sans-Serif;
@@ -612,6 +612,7 @@ div.inner {
     color: #fff;
     text-align: left;
     margin-top: 50px;
+    margin-left:55px;
     text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
@@ -1283,7 +1284,7 @@ li.active a, li.active a:hover {
 }
 
 .bbtxt-box {
-    padding: 100px 0 100px 0;
+    padding: 100px 0 80px 0;
 }
 
 .ipad-img {
@@ -3600,7 +3601,7 @@ button {
     background-clip: padding-box;
     font-family: 'Open sans',sans-serif;
     font-weight: 400;
-    padding: 10px 15px;
+    padding: 15px 18px;
     border: 0px;
 }
 
@@ -4463,3 +4464,40 @@ footer {
     background: rgba(255,255,255,0);
     padding: 0;
 }
+
+.turniri {
+    height: 950px;
+    padding: 0;
+    background: url("../images/bg.jpg") no-repeat 100% 100%;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+
+.registracija {
+    height: 950px;
+    padding: 0;
+    background: url("../images/sljaka.jfif") no-repeat 100% 100%;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.turniriedit {
+    height: 950px;
+    padding: 0;
+    background: url("../images/galerijaPozadina.jpg") no-repeat 100% 100%;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+

@@ -1,0 +1,152 @@
+﻿@model IEnumerable<TennisClub.Models.TurnirsViewModel.Turnirs>
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    var loggedInUserRole = "";
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        loggedInUserRole = UserManager.FindByIdAsync(UserManager.GetUserId(HttpContextAccessor.HttpContext.User)).Result.RoleName;
+    }
+
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, Bootstrap Table!</title>
+
+
+
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">*@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">*@
+    <link href="~/icons/elegant-font/style.css" rel="stylesheet" type="text/css">
+    <link href="~/icons/elegant_font/HTML CSS/style.css" rel="stylesheet" />
+    <link href="~/css/style_dir.css" rel="stylesheet" />
+
+    <link href="~/css/component.css" rel="stylesheet" />
+
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin: 155px 0;
+            font-size: 25px;
+            min-width: 900px;
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            padding-top:200px;
+            
+        }
+
+            .content-table thead tr {
+                background-color: #f47318;
+                color: #ffffff;
+                text-align: left;
+                font-weight: bold;
+            }
+
+            .content-table th,
+            .content-table td {
+                padding: 22px 55px;
+            }
+
+            .content-table tbody tr {
+                border-bottom: 1px solid #dddddd;
+                color: #ffffff;
+            }
+
+                .content-table tbody tr:nth-of-type(even) {
+                    background-color: #808080
+                }
+
+                .content-table tbody tr:last-of-type {
+                    border-bottom: 8px solid #f47318;
+                }
+
+                .content-table tbody tr.active-row {
+                    font-weight: bold;
+                    color: #f3f3f3;
+
+                }
+    </style>
+
+</head>
+
+
+
+<body class="turniri col-md-12" >
+                <div  align="center" >
+                    <table  class="content-table" align="center" >
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TurnirsTitle)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.StartDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EndDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NumberOfParticipants)
+                                </th>
+                                @if (loggedInUserRole == "Trainer")
+                                {
+                                    <th>
+                                        <a asp-action="AddOrEdit" class="btn btn-outline-success">
+                                            @*<span class="icon_plus"></span>*@
+                                            <i class="fas fa-plus" style="color:white"></i>
+                                            Dodaj novi turnir
+                                        </a>
+                                    </th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TurnirsTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.StartDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EndDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumberOfParticipants)
+                                    </td>
+                                    @if (loggedInUserRole == "Trainer")
+                                    {
+                                <td>
+                                    <a asp-action="AddOrEdit" asp-route-id="@item.TurnirID"><i class="fas fa-pen" style="        color: #fa3b05;"></i></a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a asp-action="Delete" asp-route-id="@item.TurnirID" class="text-danger ml-1" onclick="return confirm('Da li ste sigurni da želite da izvršite brisanje?')">
+                                        <i class="fas fa-trash" style="color:white"></i>
+                                    </a>
+                                </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>*@
+
+
+</body>
+</html>

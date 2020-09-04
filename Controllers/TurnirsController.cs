@@ -20,7 +20,7 @@ namespace TennisClub.Controllers
         }
 
         // GET: Turnirs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> TurnirsIndex()
         {
             var applicationDbContext = _context.Turnirs.Include(t => t.User);
             return View(await applicationDbContext.ToListAsync());
@@ -51,7 +51,7 @@ namespace TennisClub.Controllers
                 else
                     _context.Update(turnirs);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(TurnirsIndex));
             }
             //ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", turnirs.UserID);
             return View(turnirs);

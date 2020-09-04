@@ -18,84 +18,149 @@
     }
 
 }
-<h2>@ViewData["Title"]</h2>
-<div class="d-flex flex-column align-items-center mt-5">
-    <h2>@ViewData["Title"]</h2>
-    <div class="col-md-4 mt-4">
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="~/css/style_dir.css" rel="stylesheet" />
+
+    <link href="~/css/component.css" rel="stylesheet" />
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+       /* body {
+            font-family: sans-serif;
+            font-size: 25px;
+        }*/
+
+        .regform {
+            width: 800px;
+            height: 800px;
+            background-color: rgba(0,0,0,0.6);
+            margin: auto;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+            margin-top: 120px
+        }
+
+        .main {
+            background-color: rgba(0,0,0,0.5);
+            width: 800px;
+            margin: auto;
+        }
+
+        form {
+            padding: 10px
+        }
+
+       
+        .marginauto {
+            margin: 10px auto 20px;
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body >
+    <div class="registracija col-md-12">
+
+        @*<div style = "position:absolute; left:80px; top:20px;">
+
+            <img class="marginauto" src="~/images/igrac.png" width="580" height="350" alt="centered image" />
+
+
+        </div>*@
+
         <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
-            
 
             <!-- REGISTER BOX -->
-            <div class="top-score-title right-score col-md-12">
-                <h3>Register <span>Now</span><span class="point-int"> !</span></h3>
-                <div class="col-md-12 login-page">
-                    <form method="post" class="register-form">
+            <div class="regform">
+                @*<div class="main">*@
+                <form method="post">
 
-                        <div class="email">
-                            <label asp-for="Email">Email:</label><div class="clear"></div>
-                            <input asp-for="Email" class="form-control" type="text" placeholder="example@domain.com" required="" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
+
+
+                    <div class="form-group">
+                        <h2 style="margin-top:40px; margin-bottom:30px; font-size:35px;"> Registracija</h2>
+                        <label asp-for="Email" style="margin-top:40px; font-size:30px">Email:</label><div class="clear"></div>
+                        <input asp-for="Email" class="form-control" style="margin-top:25px; margin-bottom:25px; height:40px; width:300px; text-align:center; font-size:20px;" type="text" placeholder="example@domain.com" required="" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserName" style="font-size:30px">Username:</label><div class="clear"></div>
+                        <input asp-for="UserName" class="form-control" style="margin-top:25px; margin-bottom:25px; height:40px; width:300px; text-align:center; font-size:20px;" type="text" placeholder="Pera77" required="" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FullName" style="font-size:30px">Ime i prezime:</label><div class="clear"></div>
+                        <input asp-for="FullName" class="form-control" style="margin-top:25px; margin-bottom:25px;height:40px; width:300px; text-align:center; font-size:20px;" type="text" placeholder="Petar Petrović" required="" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" style="font-size:30px">Password:</label><div class="clear"></div>
+                        <input asp-for="Password" class="form-control" style="margin-top:25px; margin-bottom:25px;height:40px; width:300px; text-align:center; font-size:20px;" type="password" placeholder="********" required="" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" style="font-size:30px">ConfirmPassword:</label><div class="clear"></div>
+                        <input asp-for="ConfirmPassword" class="form-control" style="margin-top:25px; margin-bottom:25px;height:40px; width:300px; text-align:center; font-size:20px;" type="password" placeholder="********" required="" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    @if (loggedInUserRole == "Administrator")
+                    {
+                        <div class="form-group">
+                            <label asp-for="Role" style="font-size:30px" class="mr-4">Rola:</label> <div class="clear"></div>
+                            <select asp-for="Role" asp-items="@RegisterViewModel.Roles" 
+                                    style="margin-top:25px; margin-bottom:18px;height:40px; width:300px; text-align:center; font-size:20px;">
+                                <option>Odaberite rolu</option>
+                            </select>
+                            <span asp-validation-for="Role" class="text-danger"></span>
                         </div>
-                        <div class="name">
-                            <label asp-for="UserName">Username:</label><div class="clear"></div>
-                            <input asp-for="UserName" class="form-control" type="text" placeholder="Pera77" required="" />
-                            <span asp-validation-for="UserName" class="text-danger"></span>
+                    }
+
+                    @if (loggedInUserRole == "Trainer")
+                    {
+                        <div class="form-group">
+                            <label asp-for="Role" style="font-size:30px" class="mr-4">Rola:</label> <div class="clear"></div>
+                            <select asp-for="Role" asp-items="@RegisterViewModel.Roles.Where(r => r.Value == "Athlete")"
+                                    style="margin-top:25px; margin-bottom:18px;height:40px; width:300px; text-align:center; font-size:20px;">
+                                <option>Odaberite rolu</option>
+                            </select>
+                            <span asp-validation-for="Role" class="text-danger"></span>
                         </div>
-                        <div class="name">
-                            <label asp-for="FullName">Ime i prezime:</label><div class="clear"></div>
-                            <input asp-for="FullName" class="form-control" type="text" placeholder="Petar Petrović" required="" />
-                            <span asp-validation-for="FullName" class="text-danger"></span>
-                        </div>
-                        <div class="name">
-                            <label asp-for="Password">Password:</label><div class="clear"></div>
-                            <input asp-for="Password" class="form-control" type="password" placeholder="********" required="" />
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                        <div class="confirm_password">
-                            <label asp-for="ConfirmPassword">ConfirmPassword:</label><div class="clear"></div>
-                            <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="********" required="" />
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                        </div>
-
-                        @if (loggedInUserRole == "Administrator")
-                        {
-                            <div class="form-group">
-                                <label asp-for="Role" class="mr-4"></label>
-                                <select asp-for="Role" asp-items="@RegisterViewModel.Roles">
-                                    <option>Please select role</option>
-                                </select>
-                                <span asp-validation-for="Role" class="text-danger"></span>
-                            </div>
-                        }
-
-                        @if (loggedInUserRole == "Trainer")
-                        {
-                            <div class="form-group">
-                                <label asp-for="Role" class="mr-4"></label>
-                                <select asp-for="Role" asp-items="@RegisterViewModel.Roles.Where(r => r.Value == "Athlete")">
-                                    <option>Please select role</option>
-                                </select>
-                                <span asp-validation-for="Role" class="text-danger"></span>
-                            </div>
-                        }
+                    }
 
 
-                        <button type="submit" style="background-color: darkorange">Register</button>
-                        @Html.ActionLink("Cancel", "Users", "Account", new { @class = "btn btn-primary" })
+                    <button type="submit" style="background-color: darkorange; border-radius:6px; font-size:18px; margin-top:20px;">Register</button>
+                    @Html.ActionLink("Cancel", "Users", "Account", new { @class = "btn btn-primary" },
+                   new { @style = "color:#ffffff; font - size:larger "}) 
 
-                    </form>
-                    <div class="ctn-img">
-                        <img src="images/igrac.png" />
-                    </div><!--Close Images-->
-                    <div class="clear"></div>
-                </div>
+                </form>
+
+
 
             </div><!--Close REgistration-->
 
         </form>
-    </div>
-</div>
 
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}
+    </div>
+
+
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
+
+</body>
+</html>
