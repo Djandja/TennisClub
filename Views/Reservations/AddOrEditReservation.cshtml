@@ -1,0 +1,260 @@
+﻿@model TennisClub.Models.Reservations
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+@inject SignInManager<ApplicationUser> SignInManager
+
+
+@{
+    var loggedInUserRole = "";
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        loggedInUserRole = UserManager.FindByIdAsync(UserManager.GetUserId(HttpContextAccessor.HttpContext.User)).Result.RoleName;
+    }
+
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="~/css/style_dir.css" rel="stylesheet" />
+
+    <link href="~/css/component.css" rel="stylesheet" />
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .regform {
+            width: 900px;
+            height: 720px;
+            background-color: #e7831591;
+            margin: auto;
+            color: #100e0e;
+            padding: 10px 0px 10px 0px;
+            text-align: left;
+            border-radius: 15px 15px 0px 0px;
+            margin-top: 120px;
+            font-weight: bold;
+        }
+
+        .main {
+            background-color: #e78315ab;
+            width: 800px;
+            margin: auto;
+        }
+
+        form {
+            padding: 10px
+        }
+
+
+        .marginauto {
+            margin: 10px auto 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="turniriedit col-md-12">
+
+        <form asp-action="AddOrEditReservation">
+            <div class="regform">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ReservationID" />
+                <div class="form-group" style="margin-left:25px; margin-top:15px; font-family:Times New Roman;">
+                    <label asp-for="Subject" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
+                    <input asp-for="Subject" class="form-control"
+                           style="margin-top:25px; margin-bottom:25px; height:40px;  width:300px; text-align:center; font-size:25px;" />
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-left:25px; font-family:Times New Roman; ">
+                    <label asp-for="Description" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
+                    <input asp-for="Description" class="form-control"
+                           style="margin-top:25px; margin-bottom:25px; height:40px;  width:300px; text-align:center; font-size:25px;" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
+                    <label asp-for="StartDateReservation" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
+                    <input asp-for="StartDateReservation" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")"
+                           style="margin-top:25px; margin-bottom:25px; height:40px;  width:300px; text-align:center; font-size:25px;" />
+                    <span asp-validation-for="StartDateReservation" class="text-danger"></span>
+                </div>
+                @*<div class="form-group" style="margin-left:25px;font-family:Times New Roman;">
+                        <label asp-for="EndDateReservation" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
+                        <input asp-for="EndDateReservation" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"
+                               style="margin-top:25px; margin-bottom:25px; height:40px;  width:300px; text-align:center; font-size:25px;" />
+                        <span asp-validation-for="EndDateReservation" class="text-danger"></span>
+                    </div>*@
+
+                <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
+                    <label asp-for="StartTime" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
+                    <select id="StartTime" asp-for="StartTime" asp-items="@Reservations.StartTimes" onchange="onSelectedIndexChangedStart(this)" style="margin-top:25px; margin-bottom:18px;height:40px; width:380px; text-align:center; font-size:20px;">
+                        @if (@Model.StartTime != null)
+                        {
+                            <option selected value="">
+                                @Model.StartTime
+                            </option>
+                        }
+                        @if (Model.StartTime == null)
+                        {
+                            <option selected value="">
+                                Odaberite početno vreme rezervacije
+                            </option>
+                        }
+
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
+                    <label asp-for="EndTime" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
+                    <select id="EndTime" asp-for="EndTime" asp-items="@Reservations.EndTimes" onchange="onSelectedIndexChangedEnd(this)" style="margin-top:25px; margin-bottom:18px;height:40px; width:380px; text-align:center; font-size:20px;">
+                        @if (@Model.EndTime != null)
+                        {
+                            <option selected value="">
+                                @Model.EndTime
+                            </option>
+                        }
+                        @if (Model.EndTime == null)
+                        {
+                            <option selected value="">
+                                Odaberite vreme završetka rezervacije
+                            </option>
+                        }
+
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
+                    <label asp-for="Amount" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px; display:inline"></label>
+
+                    <input asp-for="Amount" class="form-control" id="Amount"
+                           style="margin-top:25px; margin-bottom:25px; height:40px;  width:300px; text-align:center; font-size:25px; display: inline" />
+                    @if (loggedInUserRole == "Athlete")
+                    {
+                        <p style="font-size:20px; display:inline; margin-left:20px; ">Sa popustom od 20%</p>
+                    }
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
+                    <label asp-for="Court" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
+                    <select asp-for="Court" asp-items="@Reservations.Courts" style="margin-top:25px; margin-bottom:18px;height:40px; width:300px; text-align:center; font-size:20px;">
+                        @if (@Model.Court != null)
+                        {
+                            <option selected value="">
+                                @Model.Court
+                            </option>
+                        }
+                        @if (Model.Court == null)
+                        {
+                            <option selected value="">
+                                Odaberite teren
+                            </option>
+                        }
+
+                    </select>
+                </div>
+                <div class="form-row" style="margin-left:25px; ">
+                    <div class="form-group col-md-6">
+                        <input id="submitButton" type="submit" value="Submit" class="btn btn-primary btn-block"
+                               style="background-color: #464444;border-radius: 6px;
+                        font-size: 28px;margin-top: 20px;padding: 12px 29px;display: inline-block"
+                               } />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <a asp-action="ReservationsIndex" class="btn btn-secondary btn-block"
+                           style="background-color: #464444;border-radius: 6px;font-size: 28px;
+                                color: rgb(170, 170, 170); margin-top: 20px;padding: 12px 29px;display: inline-block">
+                            <i class="fa fa-table"></i>
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+<script>
+            function onSelectedIndexChangedStart(value) {
+
+                var startTime = value.options[value.selectedIndex].text;
+                var endTime = document.getElementById('EndTime').value;
+
+                var eTime = endTime.split(":")[0];
+                var sTime = startTime.split(":")[0]
+
+                if (eTime > sTime) {
+                    if (@loggedInUserRole == "Trainer") {
+                        document.getElementById('Amount').value = 0;
+                    }
+
+                    else if (@loggedInUserRole == "Athlete") {
+                        document.getElementById('Amount').value = (eTime - sTime) * 600 * 0.8;
+                    }
+                    else if (@loggedInUserRole == "User") {
+                        document.getElementById('Amount').value = (eTime - sTime) * 600;
+
+                    }
+
+                    //document.getElementById('submitButton').disabled = false;
+                }
+                else if (document.getElementById('EndTime').value = "Odaberite vreme završetka rezervacije") {
+                    alert("Unesite kraj")
+                }
+                else {
+                    document.getElementById('Amount').value = (eTime - sTime) * 600;
+                    alert("Neispravan odabir vremena kraja ili pocetka termina")
+                    // document.getElementById('submitButton').disabled = true;
+                }
+
+            }
+
+            function onSelectedIndexChangedEnd(value) {
+
+                var endTime = value.options[value.selectedIndex].text;
+                var startTime = document.getElementById('StartTime').value;
+
+                var eTime = endTime.split(":")[0];
+                var sTime = startTime.split(":")[0]
+                if (eTime > sTime) {
+                    if (@loggedInUserRole == "Trainer") {
+                        document.getElementById('Amount').value = 0;
+                    }
+
+                    else if (@loggedInUserRole == "Athlete") {
+                        document.getElementById('Amount').value = (eTime - sTime) * 600 * 0.8;
+                    }
+                    else if (@loggedInUserRole == "User") {
+                        document.getElementById('Amount').value = (eTime - sTime) * 600;
+
+                    }
+                    //document.getElementById('submitButton').disabled = false;
+                }
+                else {
+                    document.getElementById('Amount').value = (eTime - sTime) * 600;
+                    alert("Neispravan odabir vremena kraja ili pocetka termina")
+                    // document.getElementById('submitButton').disabled = true;
+                }
+
+
+            }
+</script>
+    }
+
+</body>
+</html>

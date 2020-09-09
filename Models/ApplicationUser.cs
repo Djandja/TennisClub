@@ -27,6 +27,7 @@ namespace TennisClub.Models
 
         public List<Reservations> Reservations { get; set; }
         public List<Turnirs> Turnirs { get; set; }
+        
 
     }
 }

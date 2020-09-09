@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 
 namespace TennisClub.Models
 {
-    public class Reservations
+    public class CourtReservation
     {
         [Key]
         [Display(Name = "Broj rezervacije:")]
@@ -25,34 +23,21 @@ namespace TennisClub.Models
         public string Description { get; set; }
 
         [Required]
-        [Display(Name = "Datum rezervacije:")]
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date)]
-        public DateTime StartDateReservation { get; set; }
+        [Display(Name = "Početak")]
+        public DateTime Start { get; set; }
 
+        [Required]
+        [Display(Name = "Kraj")]
+        public DateTime End { get; set; }
 
         [Display(Name = "Iznos:")]
         public int Amount { get; set; }
 
         [Required]
         [Display(Name = "Teren:")]
-        public string Court { get; set; }
+        public int Court { get; set; }
 
         public static List<SelectListItem> Courts { set; get; }
-
-        [Required]
-        [Display(Name = "Vreme od:")]
-        public string StartTime { get; set; }
-
-        public static List<SelectListItem> StartTimes { set; get; }
-
-
-        [Required]
-        [Display(Name = "Vreme do:")]
-        public string EndTime { get; set; }
-
-        public static List<SelectListItem> EndTimes { set; get; }
-
 
         //[Required(ErrorMessage = "Korisnik je obavezan")]
         public string UserID { get; set; }
@@ -61,3 +46,4 @@ namespace TennisClub.Models
         public ApplicationUser User { get; set; }
     }
 }
+

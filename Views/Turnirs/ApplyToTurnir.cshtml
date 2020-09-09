@@ -32,14 +32,12 @@
             border-radius: 15px 15px 0px 0px;
             margin-top: 250px;
             font-weight: bold;
-            
         }
 
         .main {
             background-color: #e78315ab;
             width: 800px;
             margin: auto;
-            
         }
 
         form {
@@ -56,43 +54,43 @@
 <body>
     <div class="turniriedit col-md-12">
 
-        <form asp-action="AddOrEdit">
+        <form asp-action="ApplyToTurnir">
             <div class="regform">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="TurnirID" />
                 <div class="form-group" style="margin-left:25px; margin-top:15px; font-family:Times New Roman;">
                     <label asp-for="TurnirsTitle" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
-                    <input asp-for="TurnirsTitle" class="form-control"
+                    <input asp-for="TurnirsTitle" class="form-control" readonly
                            style="margin-top:25px; margin-bottom:25px; height:40px;  width:300px; text-align:center; font-size:25px;" />
                     <span asp-validation-for="TurnirsTitle" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="margin-left:25px; font-family:Times New Roman; ">
                     <label asp-for="StartDate" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
-                    <input asp-for="StartDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"
+                    <input asp-for="StartDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" readonly
                            style="margin-top:25px; margin-bottom:25px; height:40px; width:400px; text-align:center; font-size:25px;" />
                     <span asp-validation-for="StartDate" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
                     <label asp-for="EndDate" class="control-label" style="margin-top:40px; font-size:30px;margin-right:25px"></label>
-                    <input asp-for="EndDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"
+                    <input asp-for="EndDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" readonly
                            style="margin-top:25px; margin-bottom:25px; height:40px; width:400px; text-align:center; font-size:25px;" />
                     <span asp-validation-for="EndDate" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
                     <label asp-for="NumberOfParticipants" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
-                    <input asp-for="NumberOfParticipants" class="form-control"
+                    <input asp-for="NumberOfParticipants" class="form-control" readonly
                            style="margin-top:25px; margin-bottom:25px; height:40px; width:300px; text-align:center; font-size:25px;" />
                     <span asp-validation-for="NumberOfParticipants" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="margin-left:25px; font-family:Times New Roman;">
                     <label asp-for="NumberOfRegistered" class="control-label" style="margin-top:40px; font-size:30px; margin-right:25px"></label>
-                    <input asp-for="NumberOfRegistered" class="form-control"
+                    <input asp-for="NumberOfRegistered" class="form-control" readonly
                            style="margin-top:25px; margin-bottom:25px; height:40px; width:300px; text-align:center; font-size:25px;" />
                     <span asp-validation-for="NumberOfRegistered" class="text-danger"></span>
                 </div>
                 <div class="form-row" style="margin-left:25px; font-family:Times New Roman; ">
                     <div class="form-group col-md-6">
-                        <input type="submit" value="Submit" class="btn btn-primary btn-block"
+                        <input type="submit" value="Prijavi se na turnir" class="btn btn-primary btn-block"
                                style="background-color: #464444;border-radius: 6px;
                         font-size: 28px;margin-top: 20px;padding: 12px 29px;display: inline-block" />
                     </div>

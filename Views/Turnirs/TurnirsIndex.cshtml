@@ -100,6 +100,9 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.NumberOfParticipants)
                                 </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NumberOfRegistered)
+                                </th>
                                 @if (loggedInUserRole == "Trainer")
                                 {
                                     <th>
@@ -110,35 +113,56 @@
                                         </a>
                                     </th>
                                 }
+                                @if (loggedInUserRole == "Athlete")
+                                {
+                                    <th>
+                                        <p>Prijavi se na turnir</p>
+                                        @*<button name="uvecaj" value="first" asp-action="click">Prijavi se na turnir</button>*@
+                                        @*<button @onclick="Button_click" value="Prijavi se na turnir"><i class="fas fa-plus" style="color:white"></i>
+                Prijavi se na turnir</button>*@
+
+                                    </th>
+                                }
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.TurnirsTitle)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.StartDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.EndDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NumberOfParticipants)
-                                    </td>
-                                    @if (loggedInUserRole == "Trainer")
-                                    {
+                            <tr>
                                 <td>
-                                    <a asp-action="AddOrEdit" asp-route-id="@item.TurnirID"><i class="fas fa-pen" style="        color: #fa3b05;"></i></a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a asp-action="Delete" asp-route-id="@item.TurnirID" class="text-danger ml-1" onclick="return confirm('Da li ste sigurni da želite da izvršite brisanje?')">
-                                        <i class="fas fa-trash" style="color:white"></i>
-                                    </a>
+                                    @Html.DisplayFor(modelItem => item.TurnirsTitle)
                                 </td>
-                                    }
-                                </tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                                <td style="text-align:center">
+                                    @Html.DisplayFor(modelItem => item.NumberOfParticipants)
+                                </td>
+                                <td style="text-align:center">
+                                    @Html.DisplayFor(modelItem => item.NumberOfRegistered)
+                                </td>
+                                @if (loggedInUserRole == "Trainer")
+                                {
+                                    <td>
+                                        <a asp-action="AddOrEdit" asp-route-id="@item.TurnirID"><i class="fas fa-pen" style="        color: #fa3b05;"></i></a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a asp-action="Delete" asp-route-id="@item.TurnirID" class="text-danger ml-1" onclick="return confirm('Da li ste sigurni da želite da izvršite brisanje?')">
+                                            <i class="fas fa-trash" style="color:white"></i>
+                                        </a>
+                                    </td>
+                                }
+                                @if (loggedInUserRole == "Athlete")
+                                {
+                                    <td>
+                                        <a asp-action="ApplyToTurnir" asp-route-id="@item.TurnirID"><i class="fas fa-plus" style="        color: #fa3b05;"></i></a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                    </td>
+                                }
+                            </tr>
                             }
                         </tbody>
                     </table>

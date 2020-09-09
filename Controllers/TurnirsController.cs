@@ -42,13 +42,14 @@ namespace TennisClub.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdit([Bind("TurnirID,TurnirsTitle,StartDate,EndDate,NumberOfParticipants,UserID")] Turnirs turnirs)
+        public async Task<IActionResult> AddOrEdit([Bind("TurnirID,TurnirsTitle,StartDate,EndDate,NumberOfParticipants,NumberOfRegistered,UserID")] Turnirs turnirs)
         {
             if (ModelState.IsValid)
             {
-                if(turnirs.TurnirID == 0)
-                _context.Add(turnirs);
+                if (turnirs.TurnirID == 0)
+                    _context.Add(turnirs);
                 else
+                    //turnirs.NumberOfParticipants = turnirs.NumberOfParticipants + 1;
                     _context.Update(turnirs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(TurnirsIndex));
@@ -67,6 +68,45 @@ namespace TennisClub.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-       
+        public IActionResult click(Turnirs turnirs, string button)
+        {
+            if(button== "first")
+            turnirs.NumberOfParticipants++;
+
+            return RedirectToAction("TurnirsIndex");
+        }
+
+
+        // GET: Turnirs/Apply to turnir
+        public IActionResult ApplyToTurnir(int id = 0)
+        {
+            //ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
+            //if (id == 0)
+            //    return View(new Turnirs());
+            //else
+                return View(_context.Turnirs.Find(id));
+        }
+
+        // POST: Turnirs/Apply to turnir
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ApplyToTurnir([Bind("TurnirID,TurnirsTitle,StartDate,EndDate,NumberOfParticipants,NumberOfRegistered,UserID")] Turnirs turnirs)
+        {
+            if (ModelState.IsValid)
+            {
+                //if (turnirs.TurnirID == 0)
+                //    _context.Add(turnirs);
+                //else
+                turnirs.NumberOfRegistered = turnirs.NumberOfRegistered + 1;
+                _context.Update(turnirs);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(TurnirsIndex));
+            }
+            //ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", turnirs.UserID);
+            return View(turnirs);
+        }
+
     }
 }

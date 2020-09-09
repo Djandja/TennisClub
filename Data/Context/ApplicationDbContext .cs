@@ -19,6 +19,9 @@ namespace TennisClub.Data.Context
         public DbSet<Reservations> Reservations { get; set; }
 
         public DbSet<Turnirs> Turnirs { get; set; }
+        
+        
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -38,18 +41,8 @@ namespace TennisClub.Data.Context
                 .WithMany(b => b.Turnirs)
                 .HasForeignKey(p => p.UserID);
 
-            //builder.Entity<Reservations>().HasData(
-            //    new Reservations
-            //    {
-            //        ReservationID = 4,
-            //        Subject="lalal",
-            //        Description="kakkaka",
-            //        Start= new DateTime(2020,8,27),
-            //        End= new DateTime(2020, 8, 28),
-            //        ThemeColor="blue",
-            //        IsFullDay=true,
-            //    }
-            //    ) ;
+
+
         }
     }
 }

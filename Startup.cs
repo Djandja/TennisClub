@@ -123,5 +123,26 @@ namespace TennisClub
 
           
         }
+
+        //private async Task CreateCourts(IServiceProvider serviceProvider)
+        //{
+        //    //initializing custom roles 
+        //    var courtManager = serviceProvider.GetRequiredService<CourtManager<IdentityRole>>();
+        //    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        //    string[] courtNames = { "I", "II", "III", "IV" };
+        //    IdentityResult courtResult;
+
+        //    foreach (var roleName in courtNames)
+        //    {
+        //        var roleExist = await roleManager.RoleExistsAsync(roleName);
+        //        if (!roleExist)
+        //        {
+        //            //create the roles and seed them to the database: Question 1
+        //            roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
+        //        }
+        //    }
+
+
+        //}
     }
 }

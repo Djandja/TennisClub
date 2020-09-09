@@ -28,8 +28,12 @@ namespace TennisClub.Models.TurnirsViewModel
         public DateTime EndDate { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno")]
-        [DisplayName("Broj učesnika")]
+        [DisplayName("Maksimalni broj učesnika")]
         public int NumberOfParticipants { get; set; }
+
+        
+        [DisplayName("Broj prijavljenih učesnika")]
+        public int NumberOfRegistered { get; set; }
 
         public string UserID { get; set; }
 
