@@ -56,7 +56,6 @@
             padding: 10px
         }
 
-
         .marginauto {
             margin: 10px auto 20px;
             display: block;
@@ -190,71 +189,67 @@
 
 
 <script>
+
+
             function onSelectedIndexChangedStart(value) {
+                 var roleName = '@loggedInUserRole';
 
                 var startTime = value.options[value.selectedIndex].text;
                 var endTime = document.getElementById('EndTime').value;
-
                 var eTime = endTime.split(":")[0];
                 var sTime = startTime.split(":")[0]
-
-                if (eTime > sTime) {
-                    if (@loggedInUserRole == "Trainer") {
+                if (parseInt(eTime) > parseInt(sTime)) {
+                    alert(roleName)
+                    if (roleName === "Trainer") {
                         document.getElementById('Amount').value = 0;
                     }
+                    else if (roleName === "Athlete") {
 
-                    else if (@loggedInUserRole == "Athlete") {
-                        document.getElementById('Amount').value = (eTime - sTime) * 600 * 0.8;
+                        document.getElementById('Amount').value = (eTime - sTime) * 480;
                     }
-                    else if (@loggedInUserRole == "User") {
+                    else if (roleName === "User") {
                         document.getElementById('Amount').value = (eTime - sTime) * 600;
-
                     }
-
                     //document.getElementById('submitButton').disabled = false;
                 }
-                else if (document.getElementById('EndTime').value = "Odaberite vreme završetka rezervacije") {
-                    alert("Unesite kraj")
-                }
-                else {
-                    document.getElementById('Amount').value = (eTime - sTime) * 600;
-                    alert("Neispravan odabir vremena kraja ili pocetka termina")
-                    // document.getElementById('submitButton').disabled = true;
-                }
-
+                //else if (document.getElementById('EndTime').value = "Odaberite vreme završetka rezervacije") {
+                //    alert("Unesite kraj")
+                //}
+                //else {
+                //    document.getElementById('Amount').value = (eTime - sTime) * 600;
+                //    alert("Neispravan odabir vremena kraja ili pocetka termina")
+                //    // document.getElementById('submitButton').disabled = true;
+                //}
             }
-
-            function onSelectedIndexChangedEnd(value) {
-
+    function onSelectedIndexChangedEnd(value) {
+                 var roleName = '@loggedInUserRole';
+       
                 var endTime = value.options[value.selectedIndex].text;
                 var startTime = document.getElementById('StartTime').value;
-
                 var eTime = endTime.split(":")[0];
                 var sTime = startTime.split(":")[0]
-                if (eTime > sTime) {
-                    if (@loggedInUserRole == "Trainer") {
+        if (parseInt(eTime) > parseInt(sTime)) {
+            alert(roleName)
+                    if (roleName === "Trainer") {
                         document.getElementById('Amount').value = 0;
                     }
-
-                    else if (@loggedInUserRole == "Athlete") {
-                        document.getElementById('Amount').value = (eTime - sTime) * 600 * 0.8;
+                    else if (roleName === "Athlete") {
+                     
+                        document.getElementById('Amount').value = (eTime - sTime) * 480;
                     }
-                    else if (@loggedInUserRole == "User") {
+                    else if (roleName === "User") {
                         document.getElementById('Amount').value = (eTime - sTime) * 600;
-
                     }
                     //document.getElementById('submitButton').disabled = false;
                 }
-                else {
-                    document.getElementById('Amount').value = (eTime - sTime) * 600;
-                    alert("Neispravan odabir vremena kraja ili pocetka termina")
-                    // document.getElementById('submitButton').disabled = true;
-                }
-
-
+                //else {
+                //    document.getElementById('Amount').value = (eTime - sTime) * 600;
+                //    alert("Neispravan odabir vremena kraja ili pocetka termina")
+                //    // document.getElementById('submitButton').disabled = true;
+                //}
             }
 </script>
     }
 
 </body>
-</html>
+</html> 
